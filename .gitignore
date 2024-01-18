@@ -30,6 +30,4 @@
 *.exe
 *.out
 *.app
-
-#VisualStudio
-*.vscode
+*.vs
