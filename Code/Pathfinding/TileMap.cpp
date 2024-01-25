@@ -1,4 +1,5 @@
 #include "TileMap.h"
+using namespace AI;
 
 namespace
 {
@@ -29,13 +30,14 @@ void TileMap::LoadTiles(const char* fileName)
 		file >> buffer;
 		file >> isWalkable;
 
-		X::TextureId& tileID = mTiles.emplace_back();;
-		tileID = X::LoadTexture(buffer.c_str());
+		Tile& tile = mTiles.emplace_back();;
+		tile.textureId = X::LoadTexture(buffer.c_str());
+		tile.isWalkable = isWalkable==0;
 	}
 	file.close();
 
-	mTileWidth = X::GetSpriteWidth(mTiles[0]);
-	mTileHeight = X::GetSpriteHeight(mTiles[0]);
+	mTileWidth = X::GetSpriteWidth(mTiles[0].textureId);
+	mTileHeight = X::GetSpriteHeight(mTiles[0].textureId);
 }
 
 void TileMap::LoadMap(const char* fileName)
@@ -70,6 +72,37 @@ void TileMap::LoadMap(const char* fileName)
 
 	}
 	file.close();
+
+	mGraph.Initialize(columns, rows);
+	auto GetNeighbor = [&](int x, int y) -> AI::GridBasedGraph::Node*
+	{
+		if (IsBlocked(x, y))
+		{
+			return nullptr;
+		}
+		return mGraph.GetNode(x, y);
+	};
+	//TODO double check this is initialized correctly
+	for (int y = 0; y < rows; ++y)
+	{
+		for (int x = 0; x < columns; ++x)
+		{
+			if (IsBlocked(x, y))
+			{
+				continue;
+			}
+			GridBasedGraph::Node* node = mGraph.GetNode(x, y);
+			node->neighbors[GridBasedGraph::North] = GetNeighbor(x, y-1);
+			node->neighbors[GridBasedGraph::South] = GetNeighbor(x, y+1);
+			node->neighbors[GridBasedGraph::East] = GetNeighbor(x+1, y);
+			node->neighbors[GridBasedGraph::West] = GetNeighbor(x-1, y);
+			node->neighbors[GridBasedGraph::NorthEast] = GetNeighbor(x+1, y-1);
+			node->neighbors[GridBasedGraph::NorthWest] = GetNeighbor(x-1, y-1);
+			node->neighbors[GridBasedGraph::SouthEast] = GetNeighbor(x+1, y+1);
+			node->neighbors[GridBasedGraph::SouthWest] = GetNeighbor(x-1, y+1);
+		}
+
+	}
 }
 
 void TileMap::Render() const
@@ -83,14 +116,163 @@ void TileMap::Render() const
 		{
 			mapIndex = ToIndex(x, y, mColumns);
 			tileType = mMap[mapIndex];
-			X::DrawSprite(mTiles[tileType], position, X::Pivot::TopLeft);
+			X::DrawSprite(mTiles[tileType].textureId, position, X::Pivot::TopLeft);
 			position.x += mTileWidth;
 		}
 		position.x = 0.0f;
 		position.y += mTileHeight;
 	}
+	//TODO use this for visualizing the grid, look into how to make this only go in debug mode
+	const GridBasedGraph::Node* node;
+	X::Math::Vector2 offset = { 0.5f * mTileWidth ,0.5f * mTileHeight };
+	for (int y = 0; y < mRows; ++y)
+	{
+		for (int x = 0; x < mColumns; ++x)
+		{
+			node = mGraph.GetNode(x, y);
+			//Grid display
+			const X::Math::Vector2 a = GetPixelPosition(node->column, node->row);
+			const X::Math::Vector2 b = GetPixelPosition(node->column + 1, node->row);
+			const X::Math::Vector2 c = GetPixelPosition(node->column, node->row + 1);
+			X::DrawScreenLine(a - offset, b - offset, X::Colors::Blue);
+			X::DrawScreenLine(a - offset, c - offset, X::Colors::Blue);	
+			//Last search visited nodes display
+			if (node->parent != nullptr)
+			{
+				X::DrawScreenCircle(GetPixelPosition(node->parent->column, node->parent->row), 10.0f, X::Colors::Black);
+				X::DrawScreenLine(GetPixelPosition(node->parent->column, node->parent->row), GetPixelPosition(node->column, node->row), X::Colors::Red);
+			}
+		}
+	}
+}
+bool TileMap::IsBlocked(int x, int y) const
+{
+	if (x >= 0 && x < mColumns &&
+		y >= 0 && y < mRows)
+	{
+		const int index = ToIndex(x, y, mColumns);
+		const int tileId = mMap[index];
+		if (mTiles[tileId].isWalkable)
+		{
+			return false;
+		}
+	}
+	return true;
 }
 
+X::Math::Vector2 TileMap::GetPixelPosition(int x, int y) const
+{
+	return {
+		(x + 0.5f) * mTileWidth,
+		(y + 0.5f) * mTileHeight
+	};
+}
+Path TileMap::FindPathBFS(int startX, int startY, int endX, int endY)
+{
+	Path path;
+	BFS bfs;
+	if (bfs.Run(mGraph, startX, startY, endX, endY))
+	{
+		const NodeList& closedList = bfs.GetClosedList();
+		GridBasedGraph::Node* node = closedList.back();
+		while (node != nullptr)
+		{
+			path.push_back(GetPixelPosition(node->column, node->row));
+			node = node->parent;
+		}
+	}
+	return path;
+}
+Path TileMap::FindPathDFS(int startX, int startY, int endX, int endY)
+{
+	Path path;
+	DFS dfs;
+	if (dfs.Run(mGraph, startX, startY, endX, endY))
+	{
+		const NodeList& closedList = dfs.GetClosedList();
+		GridBasedGraph::Node* node = closedList.back();
+		while (node != nullptr)
+		{
+			path.push_back(GetPixelPosition(node->column, node->row));
+			node = node->parent;
+		}
+		std::reverse(path.begin(), path.end());
+	}
+	return path;
+}
+Path TileMap::FindPathDijkstra(int startX, int startY, int endX, int endY)
+{
+	auto getCost = [](const GridBasedGraph::Node* node, const GridBasedGraph::Node* neighbor)->float
+	{
+		if (node->column != neighbor->column && node->row != neighbor->row)
+		{
+			return 3.0f;
+		}
+		return 1.0f;
+	};
+	Path path;
+	Dijkstra dijkstra;
+	if (dijkstra.Run(mGraph, startX, startY, endX, endY, getCost))
+	{
+		const NodeList& closedList = dijkstra.GetClosedList();
+		GridBasedGraph::Node* node = closedList.back();
+		while (node != nullptr)
+		{
+			path.push_back(GetPixelPosition(node->column, node->row));
+			node = node->parent;
+		}
+		std::reverse(path.begin(), path.end());
+	}
+	return path;
+}
+Path TileMap::FindPathAStar(int startX, int startY, int endX, int endY)
+{
+	auto getCost = [](const GridBasedGraph::Node* node, const GridBasedGraph::Node* neighbor)->float
+	{
+		if (node->column != neighbor->column && node->row != neighbor->row)
+		{
+			return 3.0f;
+		}
+		return 1.0f;
+	};
+	auto getManhattan = [](const GridBasedGraph::Node* neighbor, const GridBasedGraph::Node* endNode)->float
+	{
+		float D = 1.0f;
+		float dx = abs(neighbor->column - endNode->column);
+		float dy = abs(neighbor->row - endNode->row);
+		return D * (dx + dy);
+	};
+	auto getEuclidean = [](const GridBasedGraph::Node* neighbor, const GridBasedGraph::Node* endNode)->float
+	{
+		float D = 1.0f;
+		float dx = abs(neighbor->column - endNode->column);
+		float dy = abs(neighbor->row - endNode->row);
+		return D * sqrt(dx * dx + dy * dy);
+	};
+	auto getDiagonal = [](const GridBasedGraph::Node* neighbor, const GridBasedGraph::Node* endNode)->float
+	{
+		float D1 = 1.0f;
+		float D2 = 1.0f;
+		float dx = abs(neighbor->column - endNode->column);
+		float dy = abs(neighbor->row - endNode->row);
+		return D1 * sqrt(dx + dy) + (D2 - 2 * D1) * std::min(dx,dy);
+	};
+	
+	Path path;
+	AStar aStar;
+	if (aStar.Run(mGraph, startX, startY, endX, endY, getCost, getManhattan))
+	{
+		const NodeList& closedList = aStar.GetClosedList();
+		GridBasedGraph::Node* node = closedList.back();
+		while (node != nullptr)
+		{
+			path.push_back(GetPixelPosition(node->column, node->row));
+			node = node->parent;
+		}
+		std::reverse(path.begin(), path.end());
+	}
+	return path;
+}
 // 2D map - 5 columns x 4 rows
 // [0][0][0][0][0]
 // [0][0][0][0][0]
