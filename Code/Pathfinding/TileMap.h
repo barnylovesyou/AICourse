@@ -10,7 +10,6 @@ struct Tile
 	X::TextureId textureId = 0;
 	bool isWalkable = false;
 };
-
 class TileMap
 {
 public:
@@ -30,7 +29,7 @@ public:
 	Path FindPathBFS(int startX, int startY, int endX, int endY);
 	Path FindPathDFS(int startX, int startY, int endX, int endY);
 	Path FindPathDijkstra(int startX, int startY, int endX, int endY);
-	Path FindPathAStar(int startX, int startY, int endX, int endY);
+	Path FindPathAStar(int startX, int startY, int endX, int endY, AI::GetHeuristic heuristic);
 private:
 	AI::GridBasedGraph mGraph;
 	std::vector<int> mMap;

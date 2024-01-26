@@ -10,6 +10,28 @@ int startX = 5;
 int startY = 9;
 int endX = 24;
 int endY = 12;
+auto Manhattan = [](const AI::GridBasedGraph::Node* neighbor, const AI::GridBasedGraph::Node* endNode)->float
+{
+	float D = 1.0f;
+	float dx = abs(neighbor->column - endNode->column);
+	float dy = abs(neighbor->row - endNode->row);
+	return D * (dx + dy);
+};
+auto Euclidean = [](const AI::GridBasedGraph::Node* neighbor, const AI::GridBasedGraph::Node* endNode)->float
+{
+	float D = 1.0f;
+	float dx = abs(neighbor->column - endNode->column);
+	float dy = abs(neighbor->row - endNode->row);
+	return D * sqrt(dx * dx + dy * dy);
+};
+auto Diagonal = [](const AI::GridBasedGraph::Node* neighbor, const AI::GridBasedGraph::Node* endNode)->float
+{
+	float D1 = 1.0f;
+	float D2 = 1.0f;
+	float dx = abs(neighbor->column - endNode->column);
+	float dy = abs(neighbor->row - endNode->row);
+	return D1 * sqrt(dx + dy) + (D2 - 2 * D1) * std::min(dx, dy);
+};
 //--------------------------------------------------
 
 void GameInit()
@@ -55,7 +77,7 @@ bool GameLoop(float deltaTime)
 		}
 		if (ImGui::Button("Run AStar"))
 		{
-			path = tileMap.FindPathAStar(startX, startY, endX, endY);
+			path = tileMap.FindPathAStar(startX, startY, endX, endY, Manhattan);
 		}
 		ImGui::Text("Path Size%i", path.size());
 	}

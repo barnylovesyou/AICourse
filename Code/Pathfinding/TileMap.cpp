@@ -225,7 +225,7 @@ Path TileMap::FindPathDijkstra(int startX, int startY, int endX, int endY)
 	}
 	return path;
 }
-Path TileMap::FindPathAStar(int startX, int startY, int endX, int endY)
+Path TileMap::FindPathAStar(int startX, int startY, int endX, int endY, AI::GetHeuristic heuristic)
 {
 	auto getCost = [](const GridBasedGraph::Node* node, const GridBasedGraph::Node* neighbor)->float
 	{
@@ -235,32 +235,9 @@ Path TileMap::FindPathAStar(int startX, int startY, int endX, int endY)
 		}
 		return 1.0f;
 	};
-	auto getManhattan = [](const GridBasedGraph::Node* neighbor, const GridBasedGraph::Node* endNode)->float
-	{
-		float D = 1.0f;
-		float dx = abs(neighbor->column - endNode->column);
-		float dy = abs(neighbor->row - endNode->row);
-		return D * (dx + dy);
-	};
-	auto getEuclidean = [](const GridBasedGraph::Node* neighbor, const GridBasedGraph::Node* endNode)->float
-	{
-		float D = 1.0f;
-		float dx = abs(neighbor->column - endNode->column);
-		float dy = abs(neighbor->row - endNode->row);
-		return D * sqrt(dx * dx + dy * dy);
-	};
-	auto getDiagonal = [](const GridBasedGraph::Node* neighbor, const GridBasedGraph::Node* endNode)->float
-	{
-		float D1 = 1.0f;
-		float D2 = 1.0f;
-		float dx = abs(neighbor->column - endNode->column);
-		float dy = abs(neighbor->row - endNode->row);
-		return D1 * sqrt(dx + dy) + (D2 - 2 * D1) * std::min(dx,dy);
-	};
-	
 	Path path;
 	AStar aStar;
-	if (aStar.Run(mGraph, startX, startY, endX, endY, getCost, getManhattan))
+	if (aStar.Run(mGraph, startX, startY, endX, endY, getCost, heuristic))
 	{
 		const NodeList& closedList = aStar.GetClosedList();
 		GridBasedGraph::Node* node = closedList.back();

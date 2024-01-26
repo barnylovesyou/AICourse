@@ -1,1 +1,2 @@
 D:\La Salle\AI Programming\AICourse\Code\X\External\DirectXTK\Bin\Desktop_2019\x64\Debug\DirectXTK.lib
+C:\Users\lcv2142944\Desktop\AICourse\Code\X\External\DirectXTK\Bin\Desktop_2019\x64\Debug\DirectXTK.lib
