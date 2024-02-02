@@ -1,4 +1,104 @@
-﻿  SimsGameManager.cpp
-D:\La Salle\AI Programming\AICourse\Code\FSM\Player.h(23,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\La Salle\AI Programming\AICourse\Code\FSM\Player.h(24,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  FSM.vcxproj -> D:\La Salle\AI Programming\AICourse\Code\x64\Debug\FSM.exe
+﻿  Bullet.cpp
+  GameManager.cpp
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Player.h(23,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'GameManager.cpp')
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Player.h(24,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'GameManager.cpp')
+  
+  Miner.cpp
+  MinerStates.cpp
+  Player.cpp
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Player.h(23,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'Player.cpp')
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Player.h(24,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'Player.cpp')
+  
+  Sim.cpp
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Sim.h(13,1): error C2011: 'Location': 'enum' type redefinition
+  (compiling source file 'Sim.cpp')
+  C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Sim.h(5,6):
+  see declaration of 'Location'
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Sim.h(84,6): error C2086: 'int Sim::mFatigue': redefinition
+  (compiling source file 'Sim.cpp')
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Sim.cpp(8,24): error C2027: use of undefined type 'Location'
+  C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Sim.h(5,6):
+  see declaration of 'Location'
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Sim.cpp(23,24): error C2838: 'GoHomeAndSleepTillRested': illegal qualified name in member declaration
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Sim.cpp(23,24): error C2065: 'GoHomeAndSleepTillRested': undeclared identifier
+  SimsGameManager.cpp
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Sim.h(13,1): error C2011: 'Location': 'enum' type redefinition
+  (compiling source file 'SimsGameManager.cpp')
+  C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Sim.h(5,6):
+  see declaration of 'Location'
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Sim.h(84,6): error C2086: 'int Sim::mFatigue': redefinition
+  (compiling source file 'SimsGameManager.cpp')
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Player.h(23,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'SimsGameManager.cpp')
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Player.h(24,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'SimsGameManager.cpp')
+  
+  SimStates.cpp
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Sim.h(13,1): error C2011: 'Location': 'enum' type redefinition
+  (compiling source file 'SimStates.cpp')
+  C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Sim.h(5,6):
+  see declaration of 'Location'
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Sim.h(84,6): error C2086: 'int Sim::mFatigue': redefinition
+  (compiling source file 'SimStates.cpp')
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\SimStates.cpp(7,30): error C2027: use of undefined type 'Location'
+  C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Sim.h(5,6):
+  see declaration of 'Location'
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\SimStates.cpp(12,8): error C2039: 'ResetFatigue': is not a member of 'Sim'
+  C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Sim.h(35,7):
+  see declaration of 'Sim'
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\SimStates.cpp(17,32): error C2838: 'GoMineAndDigForNugget': illegal qualified name in member declaration
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\SimStates.cpp(17,32): error C2275: 'GoMineAndDigForNugget': expected an expression instead of a type
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\SimStates.cpp(39,30): error C2027: use of undefined type 'Location'
+  C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Sim.h(5,6):
+  see declaration of 'Location'
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\SimStates.cpp(39,30): error C2065: 'Mine': undeclared identifier
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\SimStates.cpp(48,31): error C2838: 'DepositGold': illegal qualified name in member declaration
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\SimStates.cpp(48,31): error C2275: 'DepositGold': expected an expression instead of a type
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\SimStates.cpp(52,31): error C2838: 'QuenchThirst': illegal qualified name in member declaration
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\SimStates.cpp(52,31): error C2275: 'QuenchThirst': expected an expression instead of a type
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\SimStates.cpp(70,30): error C2027: use of undefined type 'Location'
+  C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Sim.h(5,6):
+  see declaration of 'Location'
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\SimStates.cpp(70,30): error C2065: 'Saloon': undeclared identifier
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\SimStates.cpp(75,8): error C2039: 'ResetThirst': is not a member of 'Sim'
+  C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Sim.h(35,7):
+  see declaration of 'Sim'
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\SimStates.cpp(78,31): error C2838: 'GoMineAndDigForNugget': illegal qualified name in member declaration
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\SimStates.cpp(78,31): error C2275: 'GoMineAndDigForNugget': expected an expression instead of a type
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\SimStates.cpp(95,30): error C2027: use of undefined type 'Location'
+  C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Sim.h(5,6):
+  see declaration of 'Location'
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\SimStates.cpp(103,31): error C2838: 'GoHomeAndSleepTillRested': illegal qualified name in member declaration
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\SimStates.cpp(103,31): error C2065: 'GoHomeAndSleepTillRested': undeclared identifier
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\SimStates.cpp(107,31): error C2838: 'GoMineAndDigForNugget': illegal qualified name in member declaration
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\SimStates.cpp(107,31): error C2275: 'GoMineAndDigForNugget': expected an expression instead of a type
+  WinMain.cpp
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Sim.h(13,1): error C2011: 'Location': 'enum' type redefinition
+  (compiling source file 'WinMain.cpp')
+  C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Sim.h(5,6):
+  see declaration of 'Location'
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\FSM\Sim.h(84,6): error C2086: 'int Sim::mFatigue': redefinition
+  (compiling source file 'WinMain.cpp')
+  
+  Generating Code...

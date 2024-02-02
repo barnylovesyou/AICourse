@@ -1,0 +1,31 @@
+﻿  Scv.cpp
+C:\Users\lcv2142944\Desktop\AICourse\Code\AI\Inc\AIWorld.h(6,33): error C2065: 'Entity': undeclared identifier
+  (compiling source file 'Scv.cpp')
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\AI\Inc\AIWorld.h(6,40): error C2059: syntax error: '>'
+  (compiling source file 'Scv.cpp')
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\AI\Inc\AIWorld.h(13,17): error C2061: syntax error: identifier 'Entity'
+  (compiling source file 'Scv.cpp')
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\AI\Inc\AIWorld.h(14,19): error C2061: syntax error: identifier 'Entity'
+  (compiling source file 'Scv.cpp')
+  
+  WinMain.cpp
+C:\Users\lcv2142944\Desktop\AICourse\Code\AI\Inc\AIWorld.h(6,33): error C2065: 'Entity': undeclared identifier
+  (compiling source file 'WinMain.cpp')
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\AI\Inc\AIWorld.h(6,40): error C2059: syntax error: '>'
+  (compiling source file 'WinMain.cpp')
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\AI\Inc\AIWorld.h(13,17): error C2061: syntax error: identifier 'Entity'
+  (compiling source file 'WinMain.cpp')
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\AI\Inc\AIWorld.h(14,19): error C2061: syntax error: identifier 'Entity'
+  (compiling source file 'WinMain.cpp')
+  
+C:\Users\lcv2142944\Desktop\AICourse\Code\Steering\WinMain.cpp(15,45): warning C4244: 'initializing': conversion from 'uint32_t' to 'float', possible loss of data
+C:\Users\lcv2142944\Desktop\AICourse\Code\Steering\WinMain.cpp(15,26): warning C4244: 'initializing': conversion from 'uint32_t' to 'const float', possible loss of data
+C:\Users\lcv2142944\Desktop\AICourse\Code\Steering\WinMain.cpp(16,47): warning C4244: 'initializing': conversion from 'uint32_t' to 'float', possible loss of data
+C:\Users\lcv2142944\Desktop\AICourse\Code\Steering\WinMain.cpp(16,27): warning C4244: 'initializing': conversion from 'uint32_t' to 'const float', possible loss of data
+  Generating Code...

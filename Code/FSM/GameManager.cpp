@@ -4,7 +4,7 @@
 GameManager* GameManager::sInstance = nullptr;
 void GameManager::StaticInitialize()
 {
-	if (sInstance != nullptr)
+	if (sInstance == nullptr)
 	{
 		sInstance = new GameManager();
 		sInstance->Initialize();

@@ -9,19 +9,13 @@ enum Location
 	Travelling,
 	Bank
 };
-enum Location
-{
-	Home,
-	Mine,
-	Saloon,
-	Bank
-};
 enum class SimState
 {
 	GoToWork,
 	Work,
 	TakeBreak,
 	GoToWashroom,
+	GoToHome,
 	GoHome,
 	MakeDinner,
 	Relax,
@@ -44,16 +38,11 @@ public:
 
 	//check miner status
 	Location GetLocation() const;
-	bool IsPocketFull() const;
-	bool IsWealthy() const;
-	bool IsRested() const;
-	bool IsThirsty() const;
+
 
 	//update status functions
 	void SetLocation(Location location);
-	void AddGoldCarried(int amount);
-	void AddGoldToBank();
-	void IncreaseFatigue();
+	void AddMoneyToBank();
 
 
 	//Stat Changes
@@ -64,8 +53,11 @@ public:
 	void AddMoney(int money);
 	void AddWashroom(int washroom);
 	void AddClean(int clean);
+	void AddLife(int life);
 	void ResetWashroom();
 	void ResetHealth();
+	void StartFire();
+	void PutOutFire();
 
 private:
 	AI::StateMachine<Sim> mStateMachine;
@@ -75,9 +67,14 @@ private:
 	int mFood;
 	int mWashroom;
 	int mClean;
-	int mHealth;
+	int mLife;
 	int mFatigue;
+	int mMoneyInBank;
+	int mHour;
+	int mMinutes;
+	int mFireTimer;
 	float tick;
+	bool mBurning;
 
 	int mGoldCarried;
 	int mGoldInBank;

@@ -6,14 +6,19 @@
 void Sim::Initialize()
 {
 	mLocation = Location::Home;
-	int mMoney=0;
-	int mHappiness=100;
-	int mFood=100;
-	int mWashroom=0;
-	int mClean=100;
-	int mHealth=100;
-	int mFatigue=0;
-	float tick=0;
+	mMoney=0;
+	mHappiness=100;
+	mFood=100;
+	mWashroom=0;
+	mClean=100;
+	mLife=100;
+	mFatigue=0;
+	mMoneyInBank=0;
+	mHour= 0;
+	mMinutes= 0;
+	mFireTimer = 0;
+	tick=0;
+	mBurning = false;
 
 	mStateMachine.Initialize(this);
 	mStateMachine.AddState<GoHomeAndSleepUntilRestedState>();
@@ -35,6 +40,15 @@ void Sim::Update(float deltaTime)
 	{
 		tick = 0;
 		mStateMachine.Update(deltaTime);
+		if (mBurning)
+		{
+			mFireTimer--;
+			//Add Fire Logic such as damage
+			if (mFireTimer <= 0)
+			{
+				//GameOver
+			}
+		}
 	}
 }
 
@@ -89,10 +103,10 @@ void Sim::AddGoldCarried(int amount)
 	mGoldCarried += amount;
 }
 
-void Sim::AddGoldToBank()
+void Sim::AddMoneyToBank()
 {
-	mGoldInBank += mGoldCarried;
-	mGoldCarried = 0;
+	mMoneyInBank += mMoney;
+	mMoney = 0;
 }
 
 void Sim::Life()
@@ -137,6 +151,11 @@ void Sim::AddClean(int clean)
 	mClean += clean;
 }
 
+void Sim::AddLife(int life)
+{
+	mLife += life;
+}
+
 void Sim::ResetWashroom()
 {
 	mWashroom = 0;
@@ -144,6 +163,18 @@ void Sim::ResetWashroom()
 
 void Sim::ResetHealth()
 {
-	mHealth = 100;
+	mLife = 100;
+}
+
+void Sim::StartFire()
+{
+	mFireTimer = 6;
+	mBurning = true;
+}
+
+void Sim::PutOutFire()
+{
+	mFireTimer = 0;
+	mBurning = false;
 }
 
