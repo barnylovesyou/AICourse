@@ -4,16 +4,22 @@
     <ClCompile Include="WinMain.cpp" />
     <ClCompile Include="Miner.cpp" />
     <ClCompile Include="MinerStates.cpp" />
-    <ClCompile Include="Player.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="SimsGameManager.cpp" />
+    <ClCompile Include="Sim.cpp" />
+    <ClCompile Include="SimStates.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Miner.h" />
     <ClInclude Include="MinerStates.h" />
-    <ClInclude Include="Player.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="SimsGameManager.h" />
+    <ClInclude Include="Sim.h" />
+    <ClInclude Include="SimStates.h" />
   </ItemGroup>
 </Project>

@@ -1,30 +1,26 @@
 #include <XEngine.h> // <> for external includes, "" for internal includes
 #include <ImGui/Inc/imgui.h>
 
-//SpaceShip Bossfight States: Shoot, Dodge, LockMissile, Call Allies and Heal
-#include "Miner.h"
-#include "GameManager.h"
+#include "Sim.h"
 //--------------------------------------------------
-Miner miner;
+Sim player;
 void GameInit()
 {
-	miner.Initialize();
-	GameManager::staticIntialize();
+	player.Initialize();
 }
 
 bool GameLoop(float deltaTime)
 {
 	if (X::IsKeyPressed(X::Keys::SPACE))
 	{
-		miner.Update(deltaTime);
+		player.Update(deltaTime);
 	}
 	ImGui::Begin("FSM", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
 	{
-		miner.DebugUI();
+		player.DebugUI();
 	}
 	ImGui::End();
 
-	GameManager::Get()->Update();
 
 	const bool quit = X::IsKeyPressed(X::Keys::ESCAPE);
 	return quit;
@@ -32,8 +28,7 @@ bool GameLoop(float deltaTime)
 
 void GameCleanup()
 {
-	miner.Terminate();
-	GameManager::staticIntialize();
+	player.Terminate();
 }
 
 //--------------------------------------------------

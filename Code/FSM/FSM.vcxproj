@@ -148,6 +148,9 @@
     <ClCompile Include="Miner.cpp" />
     <ClCompile Include="MinerStates.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Sim.cpp" />
+    <ClCompile Include="SimsGameManager.cpp" />
+    <ClCompile Include="SimStates.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +168,9 @@
     <ClInclude Include="Miner.h" />
     <ClInclude Include="MinerStates.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Sim.h" />
+    <ClInclude Include="SimsGameManager.h" />
+    <ClInclude Include="SimStates.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,10 +1,11 @@
 ﻿  TileMap.cpp
   WinMain.cpp
-C:\Users\lcv2142944\Desktop\AICourse\Code\Pathfinding\WinMain.cpp(16,11): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\lcv2142944\Desktop\AICourse\Code\Pathfinding\WinMain.cpp(17,11): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\lcv2142944\Desktop\AICourse\Code\Pathfinding\WinMain.cpp(23,11): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\lcv2142944\Desktop\AICourse\Code\Pathfinding\WinMain.cpp(24,11): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\lcv2142944\Desktop\AICourse\Code\Pathfinding\WinMain.cpp(31,11): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\lcv2142944\Desktop\AICourse\Code\Pathfinding\WinMain.cpp(32,11): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\La Salle\AI Programming\AICourse\Code\Pathfinding\WinMain.cpp(16,11): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\La Salle\AI Programming\AICourse\Code\Pathfinding\WinMain.cpp(17,11): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\La Salle\AI Programming\AICourse\Code\Pathfinding\WinMain.cpp(23,11): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\La Salle\AI Programming\AICourse\Code\Pathfinding\WinMain.cpp(24,11): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\La Salle\AI Programming\AICourse\Code\Pathfinding\WinMain.cpp(31,11): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\La Salle\AI Programming\AICourse\Code\Pathfinding\WinMain.cpp(32,11): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   Generating Code...
-  Pathfinding.vcxproj -> C:\Users\lcv2142944\Desktop\AICourse\Code\x64\Debug\Pathfinding.exe
+     Creating library D:\La Salle\AI Programming\AICourse\Code\x64\Debug\Pathfinding.lib and object D:\La Salle\AI Programming\AICourse\Code\x64\Debug\Pathfinding.exp
+  Pathfinding.vcxproj -> D:\La Salle\AI Programming\AICourse\Code\x64\Debug\Pathfinding.exe

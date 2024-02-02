@@ -2,18 +2,18 @@
 #include <XEngine.h>
 #include "Entity.h"
 
-class Player : Entity
+class Player : public Entity
 {
 public:
-	Player() {Initialize();};
+	Player() : Entity() {};
 	void Initialize();
 	void Terminate();
 
-	void Update() override;
+	void Update(float deltaTime) override;
 	void Render() override;
 
 	bool Collision(Colliders collider) override;
-	void Collided(Entity collided) override;
+	void Collided(Entity* collided) override;
 	void Hit(int damage) override;
 private:
 	void Move();
