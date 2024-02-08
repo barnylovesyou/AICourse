@@ -3,9 +3,9 @@
 
 #include "GridBasedGraph.h"
 
-#include "Entity.h"
-#include "AIWorld.h"
-#include "Agent.h"
+//#include "Entity.h"
+//#include "AIWorld.h"
+//#include "Agent.h"
 
 
 //Pathing Algorithms
@@ -19,6 +19,6 @@
 #include "StateMachine.h"
 
 //Steering
-#include "SteeringBehaviour.h"
-#include "SteeringModule.h"
-#include "SeekBehavior.h"
+//#include "SteeringBehaviour.h"
+//#include "SteeringModule.h"
+//#include "SeekBehavior.h"

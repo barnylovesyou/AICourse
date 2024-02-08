@@ -1,23 +1,22 @@
 #include <XEngine.h> // <> for external includes, "" for internal includes
-#include <ImGui/Inc/imgui.h>
-
-#include "Sim.h"
+#include "ImGuiAdditions.h"
+#include "SimsGameManager.h"
 //--------------------------------------------------
-Sim player;
 void GameInit()
 {
-	player.Initialize();
+	SimsGameManager::StaticInitialize();
 }
 
 bool GameLoop(float deltaTime)
 {
+	SimsGameManager::Get()->Update(deltaTime);
 	if (X::IsKeyPressed(X::Keys::SPACE))
 	{
-		player.Update(deltaTime);
 	}
 	ImGui::Begin("FSM", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
-	{
-		player.DebugUI();
+	{		
+		SimsGameManager::Get()->DebugUI();
+		//MyGui::TestColors();
 	}
 	ImGui::End();
 
@@ -28,7 +27,7 @@ bool GameLoop(float deltaTime)
 
 void GameCleanup()
 {
-	player.Terminate();
+	SimsGameManager::StaticTerminate();
 }
 
 //--------------------------------------------------

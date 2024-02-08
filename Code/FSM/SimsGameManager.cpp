@@ -1,11 +1,11 @@
 #include "SimsGameManager.h"
 #include "Player.h"
-#include <ImGui/Inc/ImGui.h>
+#include "ImGuiAdditions.h"
 
 SimsGameManager* SimsGameManager::sInstance;
 void SimsGameManager::StaticInitialize()
 {
-	if (sInstance != nullptr)
+	if (sInstance == nullptr)
 	{
 		sInstance = new SimsGameManager();
 		sInstance->Initialize();
@@ -23,12 +23,14 @@ void SimsGameManager::StaticTerminate()
 
 void SimsGameManager::Initialize()
 {
-	sInstance->mPlayer = new Sim();
+	mPlayer = new Sim();
+	mPlayer->Initialize();
 }
 
 void SimsGameManager::Terminate()
 {
-	delete sInstance->mPlayer;
+	mPlayer->Terminate();
+	delete mPlayer;
 }
 SimsGameManager* SimsGameManager::Get()
 {
@@ -38,6 +40,8 @@ SimsGameManager* SimsGameManager::Get()
 
 void SimsGameManager::Update(float deltaTime)
 {
+	mPlayer->Update(deltaTime);
+
 }
 
 void SimsGameManager::Render()
@@ -46,4 +50,5 @@ void SimsGameManager::Render()
 
 void SimsGameManager::DebugUI()
 {
+	mPlayer->DebugUI();
 }

@@ -44,6 +44,7 @@ namespace AI
 			}
 			mCurrentState = mStates[index].get();
 			mCurrentState->Enter(*mAgent);
+			mCurrentIndex = index;
 		}
 
 		void DebugUI()
@@ -53,9 +54,11 @@ namespace AI
 				mCurrentState->DebugUI(*mAgent);
 			}
 		}
+		int GetCurrentStateAsEnumValue() { return mCurrentIndex; }
 	private:
 		AgentType* mAgent = nullptr;
 		State<AgentType>* mCurrentState = nullptr;
+		int mCurrentIndex = 0;
 		std::vector<std::unique_ptr<State<AgentType>>> mStates;
 	};
 }

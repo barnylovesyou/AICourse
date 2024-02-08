@@ -16,14 +16,17 @@ enum class SimState
 	TakeBreak,
 	GoToWashroom,
 	GoToHome,
-	GoHome,
-	MakeDinner,
-	Relax,
+	AtHome,
+	MakeFood,
+	Hobby,
 	PutOutFire,
 	Shower,
-	Sleep,
 	GoToBank,
-	DepositMoney
+	DepositMoney,
+	AtBank,
+	Snack,
+	Dead,
+	Win
 };
 
 class Sim
@@ -36,17 +39,13 @@ public:
 	void ChangeState(SimState newState);
 	void DebugUI();
 
-	//check miner status
-	Location GetLocation() const;
-
-
 	//update status functions
+	void Reset();
 	void SetLocation(Location location);
 	void AddMoneyToBank();
-
-
-	//Stat Changes
-	void Life();
+	void SetBreak(bool onBreak);
+	void GoesToWork();
+	void Tick(int ticks);
 	void AddFatigue(int fatigue);
 	void AddFood(int food);
 	void AddHappiness(int happiness);
@@ -56,10 +55,33 @@ public:
 	void AddLife(int life);
 	void ResetWashroom();
 	void ResetHealth();
+	void ResetClean();
 	void StartFire();
-	void PutOutFire();
+	void StopFire();
+	void Sleep(int ticks);
+	void TimeSpeed(float multiplier);
+	void AddToPayCheck(int change);
+	void Pay();
+	
+	#pragma region GetFunctions
+	Location GetLocation() const;
+	int GetHour() { return mHour; }
+	int GetClean() { return mClean; }
+	int GetLife() { return mLife; }
+	int GetFireTime() { return mFireTimer; }
+	int GetBreak() { return mBreakTime; }
+
+	bool HouseOnFire() { return mBurning; }
+	bool OnBreak() { return mOnBreak; }
+	bool BeenToWork() { return mBeenToWork; }
+	#pragma endregion
 
 private:
+	void ForwardTime(int ticks);
+	int GetTicksTillMorning();
+	void ResetDailyValues();
+	void SleepTick(int ticks);
+
 	AI::StateMachine<Sim> mStateMachine;
 	Location mLocation;
 	int mMoney;
@@ -73,11 +95,15 @@ private:
 	int mHour;
 	int mMinutes;
 	int mFireTimer;
-	float tick;
-	bool mBurning;
+	int mBreakTime;
+	int mPayCheck;
 
-	int mGoldCarried;
-	int mGoldInBank;
-	int mFatigue;
-	int mThirst;
+	float mTick;
+	float mSpeedMultiplier;
+
+
+	bool mBurning;
+	bool mOnBreak;
+	bool mBeenToWork;
+	bool mDailyCheck;
 };

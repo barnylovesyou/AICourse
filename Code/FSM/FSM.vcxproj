@@ -143,11 +143,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Miner.cpp" />
     <ClCompile Include="MinerStates.cpp" />
-    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Sim.cpp" />
     <ClCompile Include="SimsGameManager.cpp" />
     <ClCompile Include="SimStates.cpp" />
@@ -162,12 +159,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bullet.h" />
-    <ClInclude Include="Entity.h" />
-    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="ImGuiAdditions.h" />
     <ClInclude Include="Miner.h" />
     <ClInclude Include="MinerStates.h" />
-    <ClInclude Include="Player.h" />
     <ClInclude Include="Sim.h" />
     <ClInclude Include="SimsGameManager.h" />
     <ClInclude Include="SimStates.h" />
