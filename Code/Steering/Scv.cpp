@@ -1,6 +1,10 @@
 #include "Scv.h"
+
 #include "TypeIDs.h"
 
+extern float wanderJitter;
+extern float wanderRadius;
+extern float wanderDistance;
 
 SCV::SCV(AI::AIWorld& world)
 	:Agent(world, static_cast<uint32_t>(AgentType::SCV))
@@ -10,7 +14,18 @@ SCV::SCV(AI::AIWorld& world)
 void SCV::Load()
 {
 	mSteeringModule = std::make_unique<AI::SteeringModule>(*this);
-	AI::SeekBehavior* seek = mSteeringModule->AddBehavior(AI::SeekBehavior);
+	mSeekBehavior = mSteeringModule->AddBehavior<AI::SeekBehavior>();
+	mFleeBehavior = mSteeringModule->AddBehavior<AI::FleeBehavior>();
+	mArriveBehavior = mSteeringModule->AddBehavior<AI::ArriveBehavior>();
+	mWanderBehavior = mSteeringModule->AddBehavior<AI::WanderBehavior>();
+	mPursuitBehavior = mSteeringModule->AddBehavior<AI::PursuitBehavior>();
+	mSeperationBehavior = mSteeringModule->AddBehavior<AI::SeperationBehavior>();
+
+	const float screenWidth = static_cast<float>(X::GetScreenWidth());
+	const float screenHeight = static_cast<float>(X::GetScreenHeight());
+	destination = { screenWidth * 0.5f, screenHeight * 0.5f };
+
+	velocity = heading * maxSpeed;
 
 	for (int i = 0; i < mTextureIds.size(); ++i)
 	{
@@ -27,6 +42,10 @@ void SCV::Unload()
 
 void SCV::Update(float deltaTime)
 {
+	if (mWanderBehavior != nullptr)
+	{
+		mWanderBehavior->Setup(wanderRadius, wanderDistance, wanderJitter);
+	}
 	const X::Math::Vector2 force = mSteeringModule->Calculate();
 	const X::Math::Vector2 acceleration = force / mass;
 	velocity += acceleration * deltaTime;
@@ -43,7 +62,7 @@ void SCV::Update(float deltaTime)
 	{
 		position.x += screenWidth;
 	}
-	if (position.x >= 0.0f)
+	if (position.x >= screenWidth)
 	{
 		position.x -= screenWidth;
 	}
@@ -51,7 +70,7 @@ void SCV::Update(float deltaTime)
 	{
 		position.y += screenHeight;
 	}
-	if (position.y >= 0.0f)
+	if (position.y >= screenHeight)
 	{
 		position.y -= screenHeight;
 	}
@@ -67,4 +86,36 @@ void SCV::Render()
 
 void SCV::ShowDebug(bool debug)
 {
+	mSeekBehavior->SetDebug(debug);
+	mFleeBehavior->SetDebug(debug);
+	mArriveBehavior->SetDebug(debug);
+	mWanderBehavior->SetDebug(debug);
+	mPursuitBehavior->SetDebug(debug);
+	mSeperationBehavior->SetDebug(debug);
+}
+
+void SCV::SetSeek(bool active)
+{
+	mSeekBehavior->SetActive(active);
+}
+
+void SCV::SetFlee(bool active)
+{
+	mFleeBehavior->SetActive(active);
+}
+void SCV::SetArrive(bool active)
+{
+	mArriveBehavior->SetActive(active);
+}
+void SCV::SetWander(bool active)
+{
+	mWanderBehavior->SetActive(active);
+}
+void SCV::SetPursuit(bool active)
+{
+	mPursuitBehavior->SetActive(active);
+}
+void SCV::SetSeperation(bool active)
+{
+	mSeperationBehavior->SetActive(active);
 }

@@ -16,8 +16,11 @@
     <Filter Include="Inc\FSM">
       <UniqueIdentifier>{f3348356-d5d0-4b99-a909-582eb7f49546}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\FSM">
-      <UniqueIdentifier>{40bb6940-35c4-4b8c-b1b1-058fd21bc0b3}</UniqueIdentifier>
+    <Filter Include="Src\Steering">
+      <UniqueIdentifier>{061305aa-0048-4645-9b56-0f4ce939307b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inc\Steering">
+      <UniqueIdentifier>{78b046a0-60bf-4b5e-9fae-4bbc74f53a16}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -26,9 +29,6 @@
     </ClInclude>
     <ClInclude Include="Inc\AI.h">
       <Filter>Inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Precompiled.h">
-      <Filter>Src</Filter>
     </ClInclude>
     <ClInclude Include="Inc\GridBasedGraph.h">
       <Filter>Inc</Filter>
@@ -57,17 +57,29 @@
     <ClInclude Include="inc\AIWorld.h">
       <Filter>Inc</Filter>
     </ClInclude>
-    <ClInclude Include="Inc\Agent.h">
-      <Filter>Inc</Filter>
+    <ClInclude Include="inc\SeekBehavior.h">
+      <Filter>Inc\Steering</Filter>
     </ClInclude>
     <ClInclude Include="inc\SteeringBehaviour.h">
-      <Filter>Inc</Filter>
+      <Filter>Inc\Steering</Filter>
     </ClInclude>
     <ClInclude Include="inc\SteeringModule.h">
+      <Filter>Inc\Steering</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Agent.h">
+      <Filter>Inc\Steering</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Precompiled.h">
       <Filter>Inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\SeekBehavior.h">
-      <Filter>Inc</Filter>
+    <ClInclude Include="Inc\WanderBehavior.h">
+      <Filter>Inc\Steering</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\PursuitBehavior.h">
+      <Filter>Inc\Steering</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\GroupBehavior.h">
+      <Filter>Inc\Steering</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -89,17 +101,26 @@
     <ClCompile Include="Src\DFS.cpp">
       <Filter>Src\Pathing</Filter>
     </ClCompile>
+    <ClCompile Include="src\SteeringModule.cpp">
+      <Filter>Src\Steering</Filter>
+    </ClCompile>
     <ClCompile Include="Src\Entity.cpp">
       <Filter>Src</Filter>
     </ClCompile>
     <ClCompile Include="Src\AIWorld.cpp">
       <Filter>Src</Filter>
     </ClCompile>
-    <ClCompile Include="src\SteeringModule.cpp">
-      <Filter>Src</Filter>
+    <ClCompile Include="Src\SeekBehavior.cpp">
+      <Filter>Src\Steering</Filter>
     </ClCompile>
-    <ClCompile Include="Inc\SeekBehavior.cpp">
-      <Filter>Src</Filter>
+    <ClCompile Include="Src\WanderBehavior.cpp">
+      <Filter>Src\Steering</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\PursuitBehavior.cpp">
+      <Filter>Src\Steering</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\GroupBehavior.cpp">
+      <Filter>Src\Steering</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

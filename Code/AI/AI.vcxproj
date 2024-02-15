@@ -111,7 +111,7 @@
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)AI/Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>Precompiled.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
@@ -148,15 +148,17 @@
     <ClInclude Include="Inc\Dijkstra.h" />
     <ClInclude Include="inc\Entity.h" />
     <ClInclude Include="Inc\GridBasedGraph.h" />
+    <ClInclude Include="Inc\GroupBehavior.h" />
+    <ClInclude Include="Inc\Precompiled.h" />
+    <ClInclude Include="Inc\PursuitBehavior.h" />
     <ClInclude Include="inc\SeekBehavior.h" />
     <ClInclude Include="inc\State.h" />
     <ClInclude Include="inc\StateMachine.h" />
     <ClInclude Include="inc\SteeringBehaviour.h" />
     <ClInclude Include="inc\SteeringModule.h" />
-    <ClInclude Include="Src\Precompiled.h" />
+    <ClInclude Include="Inc\WanderBehavior.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Inc\SeekBehavior.cpp" />
     <ClCompile Include="Src\AIWorld.cpp" />
     <ClCompile Include="Src\AStar.cpp" />
     <ClCompile Include="Src\BFS.cpp" />
@@ -164,10 +166,14 @@
     <ClCompile Include="Src\Dijkstra.cpp" />
     <ClCompile Include="Src\Entity.cpp" />
     <ClCompile Include="Src\GridBasedGraph.cpp" />
+    <ClCompile Include="Src\GroupBehavior.cpp" />
     <ClCompile Include="Src\Precompiled.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Src\PursuitBehavior.cpp" />
+    <ClCompile Include="Src\SeekBehavior.cpp" />
     <ClCompile Include="src\SteeringModule.cpp" />
+    <ClCompile Include="Src\WanderBehavior.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

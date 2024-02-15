@@ -3,7 +3,6 @@
 
 using namespace AI;
 
-//TODO doublecheck
 void GridBasedGraph::Initialize(int columns, int rows) 
 {
 	mNodes.clear();

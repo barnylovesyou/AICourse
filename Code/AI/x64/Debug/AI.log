@@ -1,6 +1,3 @@
-﻿  SeekBehavior.cpp
-  AIWorld.cpp
-  Entity.cpp
-  SteeringModule.cpp
-  Generating Code...
+﻿  GroupBehavior.cpp
+  Precompiled.cpp
   AI.vcxproj -> D:\La Salle\AI Programming\AICourse\Code\x64\Debug\AI.lib

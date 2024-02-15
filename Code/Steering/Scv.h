@@ -12,7 +12,21 @@ public:
 	void Render();
 
 	void ShowDebug(bool debug);
+
+	void SetSeek(bool active);
+	void SetFlee(bool active);
+	void SetArrive(bool active);
+	void SetWander(bool active);
+	void SetPursuit(bool active);
+	void SetSeperation(bool active);
 private:
-	//defineSteeringModule
+	std::unique_ptr<AI::SteeringModule> mSteeringModule;
+	AI::SeekBehavior* mSeekBehavior = nullptr;
+	AI::FleeBehavior* mFleeBehavior = nullptr;
+	AI::ArriveBehavior* mArriveBehavior = nullptr;
+	AI::WanderBehavior* mWanderBehavior = nullptr;
+	AI::PursuitBehavior* mPursuitBehavior = nullptr;
+	AI::SeperationBehavior* mSeperationBehavior = nullptr;
+
 	std::array<X::TextureId, 16> mTextureIds;
 };
