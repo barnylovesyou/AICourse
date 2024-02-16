@@ -149,9 +149,12 @@
     <ClInclude Include="inc\Entity.h" />
     <ClInclude Include="Inc\GridBasedGraph.h" />
     <ClInclude Include="Inc\GroupBehavior.h" />
+    <ClInclude Include="Inc\MemoryRecord.h" />
+    <ClInclude Include="Inc\PerceptionModule.h" />
     <ClInclude Include="Inc\Precompiled.h" />
     <ClInclude Include="Inc\PursuitBehavior.h" />
     <ClInclude Include="inc\SeekBehavior.h" />
+    <ClInclude Include="Inc\Sensor.h" />
     <ClInclude Include="inc\State.h" />
     <ClInclude Include="inc\StateMachine.h" />
     <ClInclude Include="inc\SteeringBehaviour.h" />
@@ -167,6 +170,7 @@
     <ClCompile Include="Src\Entity.cpp" />
     <ClCompile Include="Src\GridBasedGraph.cpp" />
     <ClCompile Include="Src\GroupBehavior.cpp" />
+    <ClCompile Include="Src\PerceptionModule.cpp" />
     <ClCompile Include="Src\Precompiled.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
     </ClCompile>

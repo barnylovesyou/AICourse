@@ -12,15 +12,26 @@ X::Math::Vector2 destination = X::Math::Vector2::Zero();
 
 bool showDebug = false;
 bool useSeek = false;
+float seekWeight = 1.0f;
 bool useFlee = false;
+float fleeWeight = 1.0f;
 bool useArrive = false;
+float arriveWeight = 1.0f;
 bool useWander = false;
+float wanderWeight = 1.0f;
 float wanderJitter = 5.0f;
 float wanderRadius = 20.0f;
 float wanderDistance = 50.0f;
 bool usePursuit = false;
+float pursuitWeight = 1.0f;
 bool useSeperation = false;
+float seperationWeight = 1.0f;
 float radius = 50.0f;
+float forceMultiplier = 10.0f;
+bool useAlignment = false;
+float alignmentWeight = 1.0f;
+bool useCohesion = false;
+float cohesionWeight = 1.0f;
 
 void SpawnAgent()
 {
@@ -39,8 +50,19 @@ void SpawnAgent()
 	agent->SetFlee(useFlee);
 	agent->SetArrive(useArrive);
 	agent->SetWander(useWander);
-	agent->SetPursuit(useWander);
+	agent->SetPursuit(usePursuit);
 	agent->SetSeperation(useSeperation);
+	agent->SetAlignment(useAlignment);
+	agent->SetCohesion(useCohesion);
+
+	agent->SetSeekWeight(seekWeight);
+	agent->SetFleeWeight(fleeWeight);
+	agent->SetArriveWeight(arriveWeight);
+	agent->SetWanderWeight(wanderWeight);
+	agent->SetPursuitWeight(pursuitWeight);
+	agent->SetSeperationWeight(seperationWeight);
+	agent->SetAlignmentWeight(alignmentWeight);
+	agent->SetCohesionWeight(cohesionWeight);
 }
 void KillAgent()
 {
@@ -88,6 +110,11 @@ bool GameLoop(float deltaTime)
 				agent->SetSeek(useSeek);
 			}
 		}
+		if (useSeek)
+		{
+			ImGui::SameLine();
+			ImGui::DragFloat("SeekWeight", &seekWeight, 0.1f, 0.1f, 5.0f);
+		}
 		if (ImGui::Checkbox("Flee", &useFlee))
 		{
 			for (auto& agent : scvAgents)
@@ -95,12 +122,22 @@ bool GameLoop(float deltaTime)
 				agent->SetFlee(useFlee);
 			}
 		}
+		if (useFlee)
+		{
+			ImGui::SameLine();
+			ImGui::DragFloat("FleeWeight", &fleeWeight, 0.1f, 0.1f, 5.0f);
+		}
 		if (ImGui::Checkbox("Arrive", &useArrive))
 		{
 			for (auto& agent : scvAgents)
 			{
 				agent->SetArrive(useArrive);
 			}
+		}
+		if (useArrive)
+		{
+			ImGui::SameLine();
+			ImGui::DragFloat("ArriveWeight", &arriveWeight, 0.1f, 0.1f, 5.0f);
 		}
 		if (ImGui::Checkbox("Wander", &useWander))
 		{
@@ -111,6 +148,8 @@ bool GameLoop(float deltaTime)
 		}
 		if (useWander)
 		{
+			ImGui::SameLine();
+			ImGui::DragFloat("WanderWeight", &wanderWeight, 0.1f, 0.1f, 5.0f);
 			if (ImGui::CollapsingHeader("WanderSettings", ImGuiTreeNodeFlags_DefaultOpen))
 			{
 				ImGui::DragFloat("WJitter", &wanderJitter, 0.1f, 0.1f, 10.0f);
@@ -125,6 +164,11 @@ bool GameLoop(float deltaTime)
 				agent->SetPursuit(usePursuit);
 			}
 		}
+		if (usePursuit)
+		{
+			ImGui::SameLine();
+			ImGui::DragFloat("PursuitWeight", &pursuitWeight, 0.1f, 0.1f, 5.0f);
+		}
 		if (ImGui::Checkbox("Seperation", &useSeperation))
 		{
 			for (auto& agent : scvAgents)
@@ -134,6 +178,8 @@ bool GameLoop(float deltaTime)
 		}
 		if (useSeperation)
 		{
+			ImGui::SameLine();
+			ImGui::DragFloat("SeperationWeight", &seperationWeight, 0.1f, 0.1f, 5.0f);
 			if (ImGui::DragFloat("Radius", &radius))
 			{
 				for (auto& agent : scvAgents)
@@ -141,6 +187,31 @@ bool GameLoop(float deltaTime)
 					agent->radius = radius;
 				}
 			}
+			ImGui::DragFloat("ForceMultiplier", &forceMultiplier, 0.1f, 5.0f, 2000.0f);
+		}
+		if (ImGui::Checkbox("Alignment", &useAlignment))
+		{
+			for (auto& agent : scvAgents)
+			{
+				agent->SetAlignment(useAlignment);
+			}
+		}
+		if (useAlignment)
+		{
+			ImGui::SameLine();
+			ImGui::DragFloat("AlignmentWeight", &alignmentWeight, 0.1f, 0.1f, 5.0f);
+		}
+		if (ImGui::Checkbox("Cohesion", &useCohesion))
+		{
+			for (auto& agent : scvAgents)
+			{
+				agent->SetCohesion(useCohesion);
+			}
+		}
+		if (useCohesion)
+		{
+			ImGui::SameLine();
+			ImGui::DragFloat("CohesionWeight", &cohesionWeight, 0.1f, 0.1f, 5.0f);
 		}
 	}
 	ImGui::End();

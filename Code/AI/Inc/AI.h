@@ -21,9 +21,15 @@
 //Steering
 #include "SteeringBehaviour.h"
 #include "SteeringModule.h"
-	//SeekBehavior includes Flee and Arrive Behavior
+	//SeekBehavior includes Seek, Flee and Arrive behavior
 #include "SeekBehavior.h"
 #include "WanderBehavior.h"
-	//PursuitBehavior includes evade behavior
+	//PursuitBehavior includes Pursuit and Avade behavior
 #include "PursuitBehavior.h"
+	//GroupBehavior includes Seperate, Alignment, Cohesion behavior
 #include "GroupBehavior.h"
+
+//Perception
+#include "MemoryRecord.h"
+#include "Sensor.h"
+#include "PerceptionModule.h"
