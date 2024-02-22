@@ -2,6 +2,7 @@
 
 #include "TypeIDs.h"
 
+extern float evadeMaxDistance;
 extern float wanderJitter;
 extern float wanderRadius;
 extern float wanderDistance;
@@ -20,6 +21,7 @@ void SCV::Load()
 	mArriveBehavior = mSteeringModule->AddBehavior<AI::ArriveBehavior>();
 	mWanderBehavior = mSteeringModule->AddBehavior<AI::WanderBehavior>();
 	mPursuitBehavior = mSteeringModule->AddBehavior<AI::PursuitBehavior>();
+	mEvadeBehavior = mSteeringModule->AddBehavior<AI::EvadeBehavior>();
 	mSeperationBehavior = mSteeringModule->AddBehavior<AI::SeperationBehavior>();
 	mAlignmentBehavior = mSteeringModule->AddBehavior<AI::AlignmentBehavior>();
 	mCohesionBehavior = mSteeringModule->AddBehavior<AI::CohesionBehavior>();
@@ -45,6 +47,10 @@ void SCV::Unload()
 
 void SCV::Update(float deltaTime)
 {
+	if (mEvadeBehavior != nullptr)
+	{
+		mEvadeBehavior->SetMaxDistance(evadeMaxDistance);
+	}
 	if (mWanderBehavior != nullptr)
 	{
 		mWanderBehavior->Setup(wanderRadius, wanderDistance, wanderJitter);
@@ -98,6 +104,7 @@ void SCV::ShowDebug(bool debug)
 	mArriveBehavior->SetDebug(debug);
 	mWanderBehavior->SetDebug(debug);
 	mPursuitBehavior->SetDebug(debug);
+	mEvadeBehavior->SetDebug(debug);
 	mSeperationBehavior->SetDebug(debug);
 	mAlignmentBehavior->SetDebug(debug);
 	mCohesionBehavior->SetDebug(debug);
@@ -123,6 +130,10 @@ void SCV::SetWander(bool active)
 void SCV::SetPursuit(bool active)
 {
 	mPursuitBehavior->SetActive(active);
+}
+void SCV::SetEvade(bool active)
+{
+	mEvadeBehavior->SetActive(active);
 }
 void SCV::SetSeperation(bool active)
 {
@@ -160,6 +171,11 @@ void SCV::SetWanderWeight(float weight)
 void SCV::SetPursuitWeight(float weight)
 {
 	mPursuitBehavior->SetWeight(weight);
+}
+
+void SCV::SetEvadeWeight(float weight)
+{
+	mEvadeBehavior->SetWeight(weight);
 }
 
 void SCV::SetSeperationWeight(float weight)

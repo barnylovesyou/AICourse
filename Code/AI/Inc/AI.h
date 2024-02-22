@@ -24,7 +24,7 @@
 	//SeekBehavior includes Seek, Flee and Arrive behavior
 #include "SeekBehavior.h"
 #include "WanderBehavior.h"
-	//PursuitBehavior includes Pursuit and Avade behavior
+	//PursuitBehavior includes Pursuit and Evade behavior
 #include "PursuitBehavior.h"
 	//GroupBehavior includes Seperate, Alignment, Cohesion behavior
 #include "GroupBehavior.h"

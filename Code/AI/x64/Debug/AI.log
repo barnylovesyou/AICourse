@@ -1,3 +1,15 @@
-﻿  PerceptionModule.cpp
+﻿  AIWorld.cpp
+  AStar.cpp
+  BFS.cpp
+  DFS.cpp
+  Dijkstra.cpp
+  Entity.cpp
+  GridBasedGraph.cpp
+  GroupBehavior.cpp
+  PerceptionModule.cpp
+  PursuitBehavior.cpp
+  SeekBehavior.cpp
+  SteeringModule.cpp
+  WanderBehavior.cpp
   Precompiled.cpp
-  AI.vcxproj -> C:\Users\lcv2142944\Desktop\AICourse\Code\x64\Debug\AI.lib
+  AI.vcxproj -> D:\La Salle\AI Programming\AICourse\Code\x64\Debug\AI.lib

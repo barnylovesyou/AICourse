@@ -18,6 +18,7 @@ public:
 	void SetArrive(bool active);
 	void SetWander(bool active);
 	void SetPursuit(bool active);
+	void SetEvade(bool active);
 	void SetSeperation(bool active);
 	void SetAlignment(bool active);
 	void SetCohesion(bool active);
@@ -27,6 +28,7 @@ public:
 	void SetArriveWeight(float weight);
 	void SetWanderWeight(float weight);
 	void SetPursuitWeight(float weight);
+	void SetEvadeWeight(float weight);
 	void SetSeperationWeight(float weight);
 	void SetAlignmentWeight(float weight);
 	void SetCohesionWeight(float weight);
@@ -37,6 +39,7 @@ private:
 	AI::ArriveBehavior* mArriveBehavior = nullptr;
 	AI::WanderBehavior* mWanderBehavior = nullptr;
 	AI::PursuitBehavior* mPursuitBehavior = nullptr;
+	AI::EvadeBehavior* mEvadeBehavior = nullptr;
 	AI::SeperationBehavior* mSeperationBehavior = nullptr;
 	AI::AlignmentBehavior* mAlignmentBehavior = nullptr;
 	AI::CohesionBehavior* mCohesionBehavior = nullptr;

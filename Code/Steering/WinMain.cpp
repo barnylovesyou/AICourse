@@ -24,6 +24,9 @@ float wanderRadius = 20.0f;
 float wanderDistance = 50.0f;
 bool usePursuit = false;
 float pursuitWeight = 1.0f;
+bool useEvade = false;
+float evadeWeight = 1.0f;
+float evadeMaxDistance = 500.0f;
 bool useSeperation = false;
 float seperationWeight = 1.0f;
 float radius = 50.0f;
@@ -51,6 +54,7 @@ void SpawnAgent()
 	agent->SetArrive(useArrive);
 	agent->SetWander(useWander);
 	agent->SetPursuit(usePursuit);
+	agent->SetEvade(useEvade);
 	agent->SetSeperation(useSeperation);
 	agent->SetAlignment(useAlignment);
 	agent->SetCohesion(useCohesion);
@@ -60,6 +64,7 @@ void SpawnAgent()
 	agent->SetArriveWeight(arriveWeight);
 	agent->SetWanderWeight(wanderWeight);
 	agent->SetPursuitWeight(pursuitWeight);
+	agent->SetEvadeWeight(evadeWeight);
 	agent->SetSeperationWeight(seperationWeight);
 	agent->SetAlignmentWeight(alignmentWeight);
 	agent->SetCohesionWeight(cohesionWeight);
@@ -168,6 +173,20 @@ bool GameLoop(float deltaTime)
 		{
 			ImGui::SameLine();
 			ImGui::DragFloat("PursuitWeight", &pursuitWeight, 0.1f, 0.1f, 5.0f);
+		}
+		if (ImGui::Checkbox("Evade", &useEvade))
+		{
+			for (auto& agent : scvAgents)
+			{
+				agent->SetEvade(useEvade);
+			}
+		}
+		if (useEvade)
+		{
+			ImGui::SameLine();
+			ImGui::DragFloat("EvadeWeight", &evadeWeight, 0.1f, 0.1f, 5.0f);
+			ImGui::SameLine();
+			ImGui::DragFloat("EvadeMaxDistance", &evadeMaxDistance, 1.0f, 10.0f, 600.0f);
 		}
 		if (ImGui::Checkbox("Seperation", &useSeperation))
 		{
