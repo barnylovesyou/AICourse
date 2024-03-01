@@ -1,8 +1,2 @@
 ﻿  Scv.cpp
-  WinMain.cpp
-C:\Users\lcv2142944\Desktop\AICourse\Code\Perception\WinMain.cpp(42,45): warning C4244: 'initializing': conversion from 'uint32_t' to 'float', possible loss of data
-C:\Users\lcv2142944\Desktop\AICourse\Code\Perception\WinMain.cpp(42,26): warning C4244: 'initializing': conversion from 'uint32_t' to 'const float', possible loss of data
-C:\Users\lcv2142944\Desktop\AICourse\Code\Perception\WinMain.cpp(43,47): warning C4244: 'initializing': conversion from 'uint32_t' to 'float', possible loss of data
-C:\Users\lcv2142944\Desktop\AICourse\Code\Perception\WinMain.cpp(43,27): warning C4244: 'initializing': conversion from 'uint32_t' to 'const float', possible loss of data
-  Generating Code...
   Perception.vcxproj -> C:\Users\lcv2142944\Desktop\AICourse\Code\x64\Debug\Perception.exe

@@ -1,5 +1,9 @@
 #pragma once
 #include <AI.h>
+
+class VisualSensor;
+class MovementSensor;
+
 class SCV : public AI::Agent {
 public:
 	SCV(AI::AIWorld& world);
@@ -42,6 +46,12 @@ private:
 	AI::SeperationBehavior* mSeperationBehavior = nullptr;
 	AI::AlignmentBehavior* mAlignmentBehavior = nullptr;
 	AI::CohesionBehavior* mCohesionBehavior = nullptr;
+
+	VisualSensor* mVisualSensor = nullptr;
+	VisualSensor* mVisualSensor2 = nullptr;
+
+	MovementSensor* mMovementSensor = nullptr;
+	MovementSensor* mMovementSensor2 = nullptr;
 
 	std::array<X::TextureId, 16> mTextureIds;
 };

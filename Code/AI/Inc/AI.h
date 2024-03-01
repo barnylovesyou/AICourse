@@ -33,3 +33,9 @@
 #include "MemoryRecord.h"
 #include "Sensor.h"
 #include "PerceptionModule.h"
+
+// Goal Decision
+#include "Goal.h"
+#include "GoalComposite.h"
+#include "DecisionModule.h"
+#include "Strategy.h"

@@ -28,6 +28,9 @@
     <Filter Include="Inc\Perception">
       <UniqueIdentifier>{4317c746-f1c6-41b8-8579-06129039ba91}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Inc\GoalBasedDecision">
+      <UniqueIdentifier>{47c187e5-6f0f-48d9-a9b1-64cdaef2f03e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inc\Common.h">
@@ -95,6 +98,18 @@
     </ClInclude>
     <ClInclude Include="Inc\Sensor.h">
       <Filter>Inc\Perception</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Goal.h">
+      <Filter>Inc\GoalBasedDecision</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\GoalComposite.h">
+      <Filter>Inc\GoalBasedDecision</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Strategy.h">
+      <Filter>Inc\GoalBasedDecision</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\DecisionModule.h">
+      <Filter>Inc\GoalBasedDecision</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
