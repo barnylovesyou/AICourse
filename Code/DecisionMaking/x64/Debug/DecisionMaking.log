@@ -1,0 +1,25 @@
+﻿  GoalMoveToPosition.cpp
+  GoalSeekToPosition.cpp
+  GoalWander.cpp
+  Mineral.cpp
+  MovementSensor.cpp
+  Raven.cpp
+C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\Raven.cpp(67,45): warning C4244: 'initializing': conversion from 'uint32_t' to 'float', possible loss of data
+C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\Raven.cpp(67,26): warning C4244: 'initializing': conversion from 'uint32_t' to 'const float', possible loss of data
+C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\Raven.cpp(68,47): warning C4244: 'initializing': conversion from 'uint32_t' to 'float', possible loss of data
+C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\Raven.cpp(68,27): warning C4244: 'initializing': conversion from 'uint32_t' to 'const float', possible loss of data
+  RavenStrategy.cpp
+  Scv.cpp
+  VisualSensor.cpp
+  WinMain.cpp
+C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\WinMain.cpp(49,45): warning C4244: 'initializing': conversion from 'uint32_t' to 'float', possible loss of data
+C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\WinMain.cpp(49,26): warning C4244: 'initializing': conversion from 'uint32_t' to 'const float', possible loss of data
+C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\WinMain.cpp(50,47): warning C4244: 'initializing': conversion from 'uint32_t' to 'float', possible loss of data
+C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\WinMain.cpp(50,27): warning C4244: 'initializing': conversion from 'uint32_t' to 'const float', possible loss of data
+C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\WinMain.cpp(89,45): warning C4244: 'initializing': conversion from 'uint32_t' to 'float', possible loss of data
+C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\WinMain.cpp(89,26): warning C4244: 'initializing': conversion from 'uint32_t' to 'const float', possible loss of data
+C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\WinMain.cpp(90,47): warning C4244: 'initializing': conversion from 'uint32_t' to 'float', possible loss of data
+C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\WinMain.cpp(90,27): warning C4244: 'initializing': conversion from 'uint32_t' to 'const float', possible loss of data
+  Generating Code...
+     Creating library C:\Users\lcv2142944\Desktop\AICourse\Code\x64\Debug\DecisionMaking.lib and object C:\Users\lcv2142944\Desktop\AICourse\Code\x64\Debug\DecisionMaking.exp
+  DecisionMaking.vcxproj -> C:\Users\lcv2142944\Desktop\AICourse\Code\x64\Debug\DecisionMaking.exe
