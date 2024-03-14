@@ -1,10 +1,15 @@
-C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\GoalMoveToPosition.cpp;C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\x64\Debug\GoalMoveToPosition.obj
-C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\GoalSeekToPosition.cpp;C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\x64\Debug\GoalSeekToPosition.obj
-C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\GoalWander.cpp;C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\x64\Debug\GoalWander.obj
-C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\Mineral.cpp;C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\x64\Debug\Mineral.obj
-C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\MovementSensor.cpp;C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\x64\Debug\MovementSensor.obj
-C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\Raven.cpp;C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\x64\Debug\Raven.obj
-C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\RavenStrategy.cpp;C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\x64\Debug\RavenStrategy.obj
-C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\Scv.cpp;C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\x64\Debug\Scv.obj
-C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\VisualSensor.cpp;C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\x64\Debug\VisualSensor.obj
-C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\WinMain.cpp;C:\Users\lcv2142944\Desktop\AICourse\Code\DecisionMaking\x64\Debug\WinMain.obj
+D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\GoalArriveAtPosition.cpp;D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\x64\Debug\GoalArriveAtPosition.obj
+D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\GoalHarvestMineral.cpp;D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\x64\Debug\GoalHarvestMineral.obj
+D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\GoalMoveToPosition.cpp;D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\x64\Debug\GoalMoveToPosition.obj
+D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\GoalSeekToPosition.cpp;D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\x64\Debug\GoalSeekToPosition.obj
+D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\GoalWander.cpp;D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\x64\Debug\GoalWander.obj
+D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\Mineral.cpp;D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\x64\Debug\Mineral.obj
+D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\MovementSensor.cpp;D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\x64\Debug\MovementSensor.obj
+D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\Raven.cpp;D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\x64\Debug\Raven.obj
+D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\RavenGoToMineralStrategy.cpp;D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\x64\Debug\RavenGoToMineralStrategy.obj
+D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\RavenHarvestStrategy.cpp;D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\x64\Debug\RavenHarvestStrategy.obj
+D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\RavenHuntStrategy.cpp;D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\x64\Debug\RavenHuntStrategy.obj
+D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\RavenStrategy.cpp;D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\x64\Debug\RavenStrategy.obj
+D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\Scv.cpp;D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\x64\Debug\Scv.obj
+D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\VisualSensor.cpp;D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\x64\Debug\VisualSensor.obj
+D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\WinMain.cpp;D:\La Salle\AI Programming\AICourse\Code\DecisionMaking\x64\Debug\WinMain.obj

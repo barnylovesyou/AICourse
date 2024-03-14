@@ -59,6 +59,12 @@
     <ClInclude Include="RavenGoToMineralStrategy.h">
       <Filter>Strategy</Filter>
     </ClInclude>
+    <ClInclude Include="GoalHarvestMineral.h">
+      <Filter>AtomicGoals</Filter>
+    </ClInclude>
+    <ClInclude Include="RavenHarvestStrategy.h">
+      <Filter>Strategy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Mineral.cpp">
@@ -98,6 +104,12 @@
       <Filter>AtomicGoals</Filter>
     </ClCompile>
     <ClCompile Include="RavenGoToMineralStrategy.cpp">
+      <Filter>Strategy</Filter>
+    </ClCompile>
+    <ClCompile Include="GoalHarvestMineral.cpp">
+      <Filter>AtomicGoals</Filter>
+    </ClCompile>
+    <ClCompile Include="RavenHarvestStrategy.cpp">
       <Filter>Strategy</Filter>
     </ClCompile>
   </ItemGroup>

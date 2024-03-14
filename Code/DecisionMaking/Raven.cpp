@@ -4,6 +4,9 @@
 
 #include "VisualSensor.h"
 #include "RavenStrategy.h"
+#include "RavenHuntStrategy.h"
+#include "RavenGoToMineralStrategy.h"
+#include "RavenHarvestStrategy.h"
 
 extern float wanderJitter;
 extern float wanderRadius;
@@ -15,7 +18,38 @@ namespace
 {
 	float ComputeImportance(const AI::Agent& agent, const AI::MemoryRecord& record)
 	{
-		return 1;
+		float score = 0.0f;
+		AgentType entityType = static_cast<AgentType>(record.GetProperty<int>("type"));
+		switch (entityType)
+		{
+		case AgentType::Invalid:
+			score = 0.0f;
+			break;
+		case AgentType::SCV:
+		{
+			score = 0.0f;
+		}
+		break;
+		case AgentType::Mineral:
+		{
+			int health = record.GetProperty<int>("health", 0);
+			if (health > 0)
+			{
+				X::Math::Vector2 lastSeenPos = record.GetProperty<X::Math::Vector2>("lastSeenPosition");
+				float distance = X::Math::Distance(agent.position, lastSeenPos);
+				float distanceScore = std::max(1000.0f - distance, 0.0f);
+				score = distanceScore;
+			}
+			else
+			{
+				score = 0.0f;
+			}
+		}
+		break;
+		default:
+			break;
+		}
+		return score;
 	}
 }
 
@@ -28,6 +62,8 @@ void Raven::Load()
 {
 	mPerceptionModule = std::make_unique <AI::PerceptionModule>(*this, ComputeImportance);
 	mPerceptionModule->SetMemorySpan(3.0f);
+	mVisualSensor = mPerceptionModule->AddSensor<VisualSensor>();
+	mVisualSensor->targetType = AgentType::Mineral;
 
 	mSteeringModule = std::make_unique<AI::SteeringModule>(*this);
 	mSeekBehavior = mSteeringModule->AddBehavior<AI::SeekBehavior>();
@@ -35,6 +71,10 @@ void Raven::Load()
 	mArriveBehavior = mSteeringModule->AddBehavior<AI::ArriveBehavior>();
 
 	mDecisionModule = std::make_unique<AI::DecisionModule<Raven>>(*this);
+	mDecisionModule->AddStrategy<RavenHuntStrategy>();
+	auto strategy = mDecisionModule->AddStrategy<RavenGoToMineralStrategy>();
+	strategy->SetPerception(mPerceptionModule.get());
+	mDecisionModule->AddStrategy<RavenHarvestStrategy>();
 
 	for (int i = 0; i < mTextureIds.size(); ++i)
 	{
@@ -50,6 +90,9 @@ void Raven::Unload()
 
 void Raven::Update(float deltaTime)
 {
+	mVisualSensor->viewRange = viewRange;
+	mVisualSensor->viewHalfAngle = viewAngle * X::Math::kDegToRad;
+
 	mPerceptionModule->Update(deltaTime);
 	mDecisionModule->Update();
 
@@ -127,6 +170,6 @@ void Raven::SetArrive(bool active)
 
 void Raven::SetTargetDestination(const X::Math::Vector2& targetDestination)
 {
-	RavenStrategy* strategy = mDecisionModule->AddStrategy<RavenStrategy>();
-	strategy->SetTargetDestination(targetDestination);
+	//RavenStrategy* strategy = mDecisionModule->AddStrategy<RavenStrategy>();
+	//strategy->SetTargetDestination(targetDestination);
 }

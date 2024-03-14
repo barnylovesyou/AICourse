@@ -13,4 +13,5 @@ public:
 
 private:
 	const AI::PerceptionModule* mPerception = nullptr;
+	X::Math::Vector2 mTargetDestination;
 };

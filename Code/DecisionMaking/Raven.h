@@ -1,6 +1,7 @@
 #pragma once
 
 #include <AI.h>
+class VisualSensor;
 
 class Raven : public AI::Agent 
 {
@@ -25,6 +26,7 @@ private:
 	std::unique_ptr<AI::SteeringModule> mSteeringModule;
 	std::unique_ptr<AI::DecisionModule<Raven>> mDecisionModule;
 
+	VisualSensor* mVisualSensor = nullptr;
 	AI::SeekBehavior* mSeekBehavior = nullptr;
 	AI::WanderBehavior* mWanderBehavior = nullptr;
 	AI::ArriveBehavior* mArriveBehavior = nullptr;

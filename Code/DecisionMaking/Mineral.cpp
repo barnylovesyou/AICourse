@@ -16,5 +16,8 @@ void Mineral::Initialize()
 
 void Mineral::Render()
 {
-	X::DrawSprite(mTextureId, position);
+	if (mHealth > 0)
+	{
+		X::DrawSprite(mTextureId, position);
+	}
 }
