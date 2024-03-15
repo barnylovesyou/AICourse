@@ -10,7 +10,7 @@ bool AI::BFS::Run(GridBasedGraph& graph, int startX, int startY, int endX, int e
 	mOpenList.clear();
 	mClosedList.clear();
 
-	GridBasedGraph::Node* node = graph.GetNode(startX, startY);
+	Node* node = graph.GetNode(startX, startY);
 	node->opened = true;
 	mOpenList.push_back(node);
 
@@ -25,7 +25,7 @@ bool AI::BFS::Run(GridBasedGraph& graph, int startX, int startY, int endX, int e
 		}
 		else
 		{
-			for (GridBasedGraph::Node* neighbor : node->neighbors)
+			for (Node* neighbor : node->neighbors)
 			{
 				if (neighbor == nullptr || neighbor->opened)
 				{

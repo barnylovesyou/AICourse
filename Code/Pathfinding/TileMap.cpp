@@ -74,7 +74,7 @@ void TileMap::LoadMap(const char* fileName)
 	file.close();
 
 	mGraph.Initialize(columns, rows);
-	auto GetNeighbor = [&](int x, int y) -> AI::GridBasedGraph::Node*
+	auto GetNeighbor = [&](int x, int y) -> Node*
 	{
 		if (IsBlocked(x, y))
 		{
@@ -91,15 +91,15 @@ void TileMap::LoadMap(const char* fileName)
 			{
 				continue;
 			}
-			GridBasedGraph::Node* node = mGraph.GetNode(x, y);
-			node->neighbors[GridBasedGraph::North] = GetNeighbor(x, y-1);
-			node->neighbors[GridBasedGraph::South] = GetNeighbor(x, y+1);
-			node->neighbors[GridBasedGraph::East] = GetNeighbor(x+1, y);
-			node->neighbors[GridBasedGraph::West] = GetNeighbor(x-1, y);
-			node->neighbors[GridBasedGraph::NorthEast] = GetNeighbor(x+1, y-1);
-			node->neighbors[GridBasedGraph::NorthWest] = GetNeighbor(x-1, y-1);
-			node->neighbors[GridBasedGraph::SouthEast] = GetNeighbor(x+1, y+1);
-			node->neighbors[GridBasedGraph::SouthWest] = GetNeighbor(x-1, y+1);
+			Node* node = mGraph.GetNode(x, y);
+			node->neighbors[North] = GetNeighbor(x, y-1);
+			node->neighbors[South] = GetNeighbor(x, y+1);
+			node->neighbors[East] = GetNeighbor(x+1, y);
+			node->neighbors[West] = GetNeighbor(x-1, y);
+			node->neighbors[NorthEast] = GetNeighbor(x+1, y-1);
+			node->neighbors[NorthWest] = GetNeighbor(x-1, y-1);
+			node->neighbors[SouthEast] = GetNeighbor(x+1, y+1);
+			node->neighbors[SouthWest] = GetNeighbor(x-1, y+1);
 		}
 
 	}
@@ -123,7 +123,7 @@ void TileMap::Render() const
 		position.y += mTileHeight;
 	}
 	//TODO use this for visualizing the grid, look into how to make this only go in debug mode
-	const GridBasedGraph::Node* node;
+	const Node* node;
 	X::Math::Vector2 offset = { 0.5f * mTileWidth ,0.5f * mTileHeight };
 	for (int y = 0; y < mRows; ++y)
 	{
@@ -174,7 +174,7 @@ Path TileMap::FindPathBFS(int startX, int startY, int endX, int endY)
 	if (bfs.Run(mGraph, startX, startY, endX, endY))
 	{
 		const NodeList& closedList = bfs.GetClosedList();
-		GridBasedGraph::Node* node = closedList.back();
+		Node* node = closedList.back();
 		while (node != nullptr)
 		{
 			path.push_back(GetPixelPosition(node->column, node->row));
@@ -190,7 +190,7 @@ Path TileMap::FindPathDFS(int startX, int startY, int endX, int endY)
 	if (dfs.Run(mGraph, startX, startY, endX, endY))
 	{
 		const NodeList& closedList = dfs.GetClosedList();
-		GridBasedGraph::Node* node = closedList.back();
+		Node* node = closedList.back();
 		while (node != nullptr)
 		{
 			path.push_back(GetPixelPosition(node->column, node->row));
@@ -202,7 +202,7 @@ Path TileMap::FindPathDFS(int startX, int startY, int endX, int endY)
 }
 Path TileMap::FindPathDijkstra(int startX, int startY, int endX, int endY)
 {
-	auto getCost = [](const GridBasedGraph::Node* node, const GridBasedGraph::Node* neighbor)->float
+	auto getCost = [](const Node* node, const Node* neighbor)->float
 	{
 		if (node->column != neighbor->column && node->row != neighbor->row)
 		{
@@ -215,7 +215,7 @@ Path TileMap::FindPathDijkstra(int startX, int startY, int endX, int endY)
 	if (dijkstra.Run(mGraph, startX, startY, endX, endY, getCost))
 	{
 		const NodeList& closedList = dijkstra.GetClosedList();
-		GridBasedGraph::Node* node = closedList.back();
+		Node* node = closedList.back();
 		while (node != nullptr)
 		{
 			path.push_back(GetPixelPosition(node->column, node->row));
@@ -227,7 +227,7 @@ Path TileMap::FindPathDijkstra(int startX, int startY, int endX, int endY)
 }
 Path TileMap::FindPathAStar(int startX, int startY, int endX, int endY, AI::GetHeuristic heuristic)
 {
-	auto getCost = [](const GridBasedGraph::Node* node, const GridBasedGraph::Node* neighbor)->float
+	auto getCost = [](const Node* node, const Node* neighbor)->float
 	{
 		if (node->column != neighbor->column && node->row != neighbor->row)
 		{
@@ -240,7 +240,7 @@ Path TileMap::FindPathAStar(int startX, int startY, int endX, int endY, AI::GetH
 	if (aStar.Run(mGraph, startX, startY, endX, endY, getCost, heuristic))
 	{
 		const NodeList& closedList = aStar.GetClosedList();
-		GridBasedGraph::Node* node = closedList.back();
+		Node* node = closedList.back();
 		while (node != nullptr)
 		{
 			path.push_back(GetPixelPosition(node->column, node->row));

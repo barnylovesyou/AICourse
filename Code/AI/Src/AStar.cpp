@@ -10,12 +10,12 @@ bool AStar::Run(GridBasedGraph& graph, int startX, int startY, int endX, int end
 	mOpenList.clear();
 	mClosedList.clear();
 
-	GridBasedGraph::Node* node = graph.GetNode(startX, startY);
-	GridBasedGraph::Node* endNode = graph.GetNode(endX, endY);
+	Node* node = graph.GetNode(startX, startY);
+	Node* endNode = graph.GetNode(endX, endY);
 	node->opened = true;
 	mOpenList.push_back(node);
 
-	auto sortCost = [](const GridBasedGraph::Node* a, const GridBasedGraph::Node* b)
+	auto sortCost = [](const Node* a, const Node* b)
 	{
 		return a->cost + a->heuristic < b->cost + b->heuristic;
 	};
@@ -32,7 +32,7 @@ bool AStar::Run(GridBasedGraph& graph, int startX, int startY, int endX, int end
 		}
 		else
 		{
-			for (GridBasedGraph::Node* neighbor : node->neighbors)
+			for (Node* neighbor : node->neighbors)
 			{
 				if (neighbor == nullptr || neighbor->closed)
 				{

@@ -3,7 +3,7 @@
 
 namespace AI
 {
-	using GetCost = std::function<float(const GridBasedGraph::Node*, const GridBasedGraph::Node*)>;
+	using GetCost = std::function<float(const Node*, const Node*)>;
 
 	class Dijkstra
 	{

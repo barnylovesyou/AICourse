@@ -9,12 +9,12 @@ bool Dijkstra::Run(GridBasedGraph& graph, int startX, int startY, int endX, int 
 	mOpenList.clear();
 	mClosedList.clear();
 
-	GridBasedGraph::Node* node = graph.GetNode(startX, startY);
-	GridBasedGraph::Node* endNode = nullptr;
+	Node* node = graph.GetNode(startX, startY);
+	Node* endNode = nullptr;
 	node->opened = true;
 	mOpenList.push_back(node);
 
-	auto sortCost = [](const GridBasedGraph::Node* a, const GridBasedGraph::Node* b)
+	auto sortCost = [](const Node* a, const Node* b)
 	{
 		return a->cost < b->cost;
 	};
@@ -31,7 +31,7 @@ bool Dijkstra::Run(GridBasedGraph& graph, int startX, int startY, int endX, int 
 		}
 		else
 		{
-			for (GridBasedGraph::Node* neighbor : node->neighbors)
+			for (Node* neighbor : node->neighbors)
 			{
 				if (neighbor == nullptr || neighbor->closed)
 				{

@@ -390,7 +390,7 @@ void GameCleanup()
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
-	X::Start("Perception");
+	X::Start("DecisionMaking");
 	GameInit();
 
 	X::Run(GameLoop);

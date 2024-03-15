@@ -1,19 +1,52 @@
-﻿  SimStates.cpp
-D:\La Salle\AI Programming\AICourse\Code\FSM\SimStates.cpp(29,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\La Salle\AI Programming\AICourse\Code\FSM\SimStates.cpp(58,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\La Salle\AI Programming\AICourse\Code\FSM\SimStates.cpp(103,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\La Salle\AI Programming\AICourse\Code\FSM\SimStates.cpp(114,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\La Salle\AI Programming\AICourse\Code\FSM\SimStates.cpp(173,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\La Salle\AI Programming\AICourse\Code\FSM\SimStates.cpp(187,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\La Salle\AI Programming\AICourse\Code\FSM\SimStates.cpp(193,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\La Salle\AI Programming\AICourse\Code\FSM\SimStates.cpp(222,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\La Salle\AI Programming\AICourse\Code\FSM\SimStates.cpp(324,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\La Salle\AI Programming\AICourse\Code\FSM\SimStates.cpp(393,45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\La Salle\AI Programming\AICourse\Code\FSM\SimStates.cpp(393,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\La Salle\AI Programming\AICourse\Code\FSM\SimStates.cpp(423,49): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\La Salle\AI Programming\AICourse\Code\FSM\SimStates.cpp(423,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\La Salle\AI Programming\AICourse\Code\FSM\SimStates.cpp(452,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\La Salle\AI Programming\AICourse\Code\FSM\SimStates.cpp(533,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\La Salle\AI Programming\AICourse\Code\FSM\SimStates.cpp(545,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\La Salle\AI Programming\AICourse\Code\FSM\SimStates.cpp(550,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  FSM.vcxproj -> D:\La Salle\AI Programming\AICourse\Code\x64\Debug\FSM.exe
+﻿  Miner.cpp
+  MinerStates.cpp
+  Sim.cpp
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\Sim.cpp(94,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\Sim.cpp(94,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\Sim.cpp(98,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\Sim.cpp(98,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\Sim.cpp(102,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\Sim.cpp(102,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\Sim.cpp(106,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\Sim.cpp(106,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\Sim.cpp(110,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\Sim.cpp(110,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\Sim.cpp(114,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\Sim.cpp(114,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\Sim.cpp(120,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\Sim.cpp(120,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\Sim.cpp(127,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\Sim.cpp(127,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  SimsGameManager.cpp
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\Player.h(23,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'SimsGameManager.cpp')
+  
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\Player.h(24,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'SimsGameManager.cpp')
+  
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\SimsGameManager.cpp(10,34): error C2280: 'SimsGameManager::SimsGameManager(void)': attempting to reference a deleted function
+  C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\SimsGameManager.h(18,2):
+  see declaration of 'SimsGameManager::SimsGameManager'
+  C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\SimsGameManager.h(18,2):
+  'SimsGameManager::SimsGameManager(void)': function was explicitly deleted
+  
+  SimStates.cpp
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\SimStates.cpp(29,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\SimStates.cpp(58,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\SimStates.cpp(103,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\SimStates.cpp(114,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\SimStates.cpp(173,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\SimStates.cpp(187,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\SimStates.cpp(193,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\SimStates.cpp(222,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\SimStates.cpp(324,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\SimStates.cpp(393,45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\SimStates.cpp(393,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\SimStates.cpp(423,49): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\SimStates.cpp(423,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\SimStates.cpp(452,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\SimStates.cpp(533,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\SimStates.cpp(545,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\FSM\SimStates.cpp(550,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  WinMain.cpp
+  Generating Code...

@@ -10,21 +10,21 @@ int startX = 5;
 int startY = 9;
 int endX = 24;
 int endY = 12;
-auto Manhattan = [](const AI::GridBasedGraph::Node* neighbor, const AI::GridBasedGraph::Node* endNode)->float
+auto Manhattan = [](const AI::Node* neighbor, const AI::Node* endNode)->float
 {
 	float D = 1.0f;
 	float dx = abs(neighbor->column - endNode->column);
 	float dy = abs(neighbor->row - endNode->row);
 	return D * (dx + dy);
 };
-auto Euclidean = [](const AI::GridBasedGraph::Node* neighbor, const AI::GridBasedGraph::Node* endNode)->float
+auto Euclidean = [](const AI::Node* neighbor, const AI::Node* endNode)->float
 {
 	float D = 1.0f;
 	float dx = abs(neighbor->column - endNode->column);
 	float dy = abs(neighbor->row - endNode->row);
 	return D * sqrt(dx * dx + dy * dy);
 };
-auto Diagonal = [](const AI::GridBasedGraph::Node* neighbor, const AI::GridBasedGraph::Node* endNode)->float
+auto Diagonal = [](const AI::Node* neighbor, const AI::Node* endNode)->float
 {
 	float D1 = 1.0f;
 	float D2 = 1.0f;

@@ -29,7 +29,7 @@ void GridBasedGraph::ResetSearchParams()
 	}
 }
 
-GridBasedGraph::Node* GridBasedGraph::GetNode(int x, int y)
+Node* GridBasedGraph::GetNode(int x, int y)
 {
 	if (x >= mColumns||x<0)
 	{
@@ -42,7 +42,7 @@ GridBasedGraph::Node* GridBasedGraph::GetNode(int x, int y)
 	}
 	return nullptr;
 }
-const GridBasedGraph::Node* GridBasedGraph::GetNode(int x, int y) const
+const Node* GridBasedGraph::GetNode(int x, int y) const
 {
 	if (x >= mColumns||x<0)
 	{

@@ -17,5 +17,6 @@ private:
 	Sim* mPlayer;
 	SimsGameManager() = default;
 	SimsGameManager& operator=(SimsGameManager& gm) = delete;
-	SimsGameManager(SimsGameManager& gm) = delete;
+	SimsGameManager& operator=(const SimsGameManager& gm) const = delete;
+	SimsGameManager(const SimsGameManager& gm) = delete;
 };
