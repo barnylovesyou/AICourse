@@ -9,9 +9,32 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Goals">
+      <UniqueIdentifier>{48c9c11b-7b59-4669-ab74-2e056d6820ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sensors">
+      <UniqueIdentifier>{6fbe84e8-58f8-4016-9676-ed08812bef33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strategies">
+      <UniqueIdentifier>{5542baa3-3ae3-49e3-8fca-f05a91521280}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="StateMachines">
+      <UniqueIdentifier>{00679691-2695-4fd1-8e35-102255a6f96c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Goals\HumanWorker">
+      <UniqueIdentifier>{c04b3271-14ae-41d4-96ae-41fc97b7ba95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strategies\HumanWorker">
+      <UniqueIdentifier>{b821bad2-fb05-4676-94a7-67f5e0a952ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Human">
+      <UniqueIdentifier>{569d6aeb-20db-4cf1-9feb-0ea36b22ad8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Human">
+      <UniqueIdentifier>{2dc0a845-f763-4d9d-ba58-78bff7fe325b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="StateMachines\Human">
+      <UniqueIdentifier>{94ec8189-b144-4c57-bf07-740b413e7d2e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -22,10 +45,49 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MyTileMap.cpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mineral.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VisualSensor.cpp">
+      <Filter>Sensors</Filter>
+    </ClCompile>
+    <ClCompile Include="MovementSensor.cpp">
+      <Filter>Sensors</Filter>
+    </ClCompile>
+    <ClCompile Include="HWStratRun.cpp">
+      <Filter>Strategies\HumanWorker</Filter>
+    </ClCompile>
+    <ClCompile Include="HWStratMine.cpp">
+      <Filter>Strategies\HumanWorker</Filter>
+    </ClCompile>
+    <ClCompile Include="HWStratScout.cpp">
+      <Filter>Strategies\HumanWorker</Filter>
     </ClCompile>
     <ClCompile Include="HumanBase.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Human</Filter>
+    </ClCompile>
+    <ClCompile Include="HumanWorker.cpp">
+      <Filter>Source Files\Human</Filter>
+    </ClCompile>
+    <ClCompile Include="HumanWorkerStates.cpp">
+      <Filter>StateMachines\Human</Filter>
+    </ClCompile>
+    <ClCompile Include="HWArriveAtPos.cpp">
+      <Filter>Goals\HumanWorker</Filter>
+    </ClCompile>
+    <ClCompile Include="HWCompTravelTo.cpp">
+      <Filter>Goals\HumanWorker</Filter>
+    </ClCompile>
+    <ClCompile Include="HWWander.cpp">
+      <Filter>Goals\HumanWorker</Filter>
+    </ClCompile>
+    <ClCompile Include="HWCompScout.cpp">
+      <Filter>Goals\HumanWorker</Filter>
+    </ClCompile>
+    <ClCompile Include="HWGoToPos.cpp">
+      <Filter>Goals\HumanWorker</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -35,11 +97,50 @@
     <ClInclude Include="TypeIds.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Mineral.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VisualSensor.h">
+      <Filter>Sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementSensor.h">
+      <Filter>Sensors</Filter>
+    </ClInclude>
     <ClInclude Include="MyTileMap.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HWArriveAtPos.h">
+      <Filter>Goals\HumanWorker</Filter>
+    </ClInclude>
+    <ClInclude Include="HWStratRun.h">
+      <Filter>Strategies\HumanWorker</Filter>
+    </ClInclude>
+    <ClInclude Include="HWStratMine.h">
+      <Filter>Strategies\HumanWorker</Filter>
+    </ClInclude>
+    <ClInclude Include="HWStratScout.h">
+      <Filter>Strategies\HumanWorker</Filter>
     </ClInclude>
     <ClInclude Include="HumanBase.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Human</Filter>
+    </ClInclude>
+    <ClInclude Include="HumanWorker.h">
+      <Filter>Header Files\Human</Filter>
+    </ClInclude>
+    <ClInclude Include="HumanWorkerStates.h">
+      <Filter>StateMachines\Human</Filter>
+    </ClInclude>
+    <ClInclude Include="HWCompTravelTo.h">
+      <Filter>Goals\HumanWorker</Filter>
+    </ClInclude>
+    <ClInclude Include="HWWander.h">
+      <Filter>Goals\HumanWorker</Filter>
+    </ClInclude>
+    <ClInclude Include="HWCompScout.h">
+      <Filter>Goals\HumanWorker</Filter>
+    </ClInclude>
+    <ClInclude Include="HWGoToPos.h">
+      <Filter>Goals\HumanWorker</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

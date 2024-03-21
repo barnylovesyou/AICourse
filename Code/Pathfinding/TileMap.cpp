@@ -206,7 +206,7 @@ Path TileMap::FindPathDijkstra(int startX, int startY, int endX, int endY)
 	{
 		if (node->column != neighbor->column && node->row != neighbor->row)
 		{
-			return 3.0f;
+			return 1.6f;
 		}
 		return 1.0f;
 	};
@@ -231,7 +231,7 @@ Path TileMap::FindPathAStar(int startX, int startY, int endX, int endY, AI::GetH
 	{
 		if (node->column != neighbor->column && node->row != neighbor->row)
 		{
-			return 3.0f;
+			return 1.6f;
 		}
 		return 1.0f;
 	};

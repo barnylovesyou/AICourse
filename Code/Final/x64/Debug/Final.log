@@ -1,2 +1,4 @@
-﻿  MyTileMap.cpp
-  Final.vcxproj -> C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\x64\Debug\Final.exe
+﻿  HumanWorker.cpp
+D:\La Salle\AI Programming\AICourse\Code\Final\MyTileMap.h(32,87): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\La Salle\AI Programming\AICourse\Code\Final\MyTileMap.h(32,65): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Final.vcxproj -> D:\La Salle\AI Programming\AICourse\Code\x64\Debug\Final.exe

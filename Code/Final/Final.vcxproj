@@ -141,15 +141,41 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HumanBase.cpp" />
+    <ClCompile Include="HumanWorkerStates.cpp" />
+    <ClCompile Include="HWArriveAtPos.cpp" />
+    <ClCompile Include="HWCompScout.cpp" />
+    <ClCompile Include="HWCompTravelTo.cpp" />
+    <ClCompile Include="HWGoToPos.cpp" />
+    <ClCompile Include="HWStratMine.cpp" />
+    <ClCompile Include="HWStratRun.cpp" />
+    <ClCompile Include="HWStratScout.cpp" />
+    <ClCompile Include="HWWander.cpp" />
+    <ClCompile Include="Mineral.cpp" />
+    <ClCompile Include="MovementSensor.cpp" />
     <ClCompile Include="MyAIWorld.cpp" />
     <ClCompile Include="MyTileMap.cpp" />
+    <ClCompile Include="HumanWorker.cpp" />
+    <ClCompile Include="VisualSensor.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HumanBase.h" />
+    <ClInclude Include="HumanWorkerStates.h" />
+    <ClInclude Include="HWArriveAtPos.h" />
+    <ClInclude Include="HWCompScout.h" />
+    <ClInclude Include="HWCompTravelTo.h" />
+    <ClInclude Include="HWGoToPos.h" />
+    <ClInclude Include="HWStratMine.h" />
+    <ClInclude Include="HWStratRun.h" />
+    <ClInclude Include="HWStratScout.h" />
+    <ClInclude Include="HWWander.h" />
+    <ClInclude Include="Mineral.h" />
+    <ClInclude Include="MovementSensor.h" />
     <ClInclude Include="MyAIWorld.h" />
     <ClInclude Include="MyTileMap.h" />
+    <ClInclude Include="HumanWorker.h" />
     <ClInclude Include="TypeIds.h" />
+    <ClInclude Include="VisualSensor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

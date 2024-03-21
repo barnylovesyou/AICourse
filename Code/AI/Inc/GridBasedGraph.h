@@ -8,11 +8,15 @@ namespace AI
 		North,
 		South,
 		East,
-		West
+		West,
+		NorthEast,
+		NorthWest,
+		SouthWest,
+		SouthEast
 	};
 	struct Node
 	{
-		std::array<Node*, 4> neighbors = {};
+		std::array<Node*, 8> neighbors = {};
 		int column = 0;
 		int row = 0;
 		Agent* occupier = nullptr;

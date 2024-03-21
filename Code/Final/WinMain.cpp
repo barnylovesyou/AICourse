@@ -7,6 +7,7 @@
 using namespace AI;
 //--------------------------------------------------
 
+
 void GameInit()
 {
 	MyAIWorld::StaticInitialize();
@@ -18,7 +19,6 @@ bool GameLoop(float deltaTime)
 	MyAIWorld::GetInstance()->Update(deltaTime);
 	MyAIWorld::GetInstance()->Render();
 	MyAIWorld::GetInstance()->DebugUI();
-
 
 	const bool quit = X::IsKeyPressed(X::Keys::ESCAPE);
 	return quit;
@@ -35,7 +35,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
 	X::Start("Final");
 	GameInit();
-
 	X::Run(GameLoop);
 
 	GameCleanup();

@@ -51,10 +51,14 @@ X::Math::Vector2 ArriveBehavior::Calculate(Agent& agent)
     //min distance to target is 1
     if (distance > 1.0f)
     {
-        const float decelTweaker = agent.mass * 1.5f;
-        //NOTE deceleration is an enum assuming that its from fast to slow order
-        const float decelerationScale = (static_cast<float>(deceleration) + 1.0f) * decelTweaker;
-        float speed = distance / decelerationScale;
+        float  speed = distance;
+        if (distance < 10.0f)
+        {
+            const float decelTweaker = agent.mass * decelTweak;
+            //NOTE deceleration is an enum assuming that its from fast to slow order
+            const float decelerationScale = (static_cast<float>(deceleration) + 1.0f) * decelTweaker;
+            speed = speed / decelerationScale;
+        }
         speed = X::Math::Min(speed, agent.maxSpeed);
         desiredVelocity = agentToDest/distance * speed;
     }

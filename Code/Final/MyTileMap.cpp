@@ -1,4 +1,10 @@
 #include "MyTileMap.h"
+#include "XColors.h"
+#include "ImGui/inc/imgui.h"
+#include "MyAIWorld.h"
+#include "AIWorld.h"
+#include <iostream>
+
 using namespace AI;
 
 namespace
@@ -61,6 +67,9 @@ void MyTileMap::LoadMap(const char* fileName)
 	mColumns = columns;
 	mRows = rows;
 
+	MyAIWorld& world = *MyAIWorld::GetInstance();
+	mMinerals.clear();
+
 	mMap.resize(columns * rows);
 	for (int y = 0; y < rows; ++y)
 	{
@@ -68,7 +77,26 @@ void MyTileMap::LoadMap(const char* fileName)
 		{
 			file >> tileType;
 			int mapIndex = ToIndex(x, y, columns);
-			mMap[mapIndex] = tileType - '0';
+			int tileInt = tileType - '0';
+			mMap[mapIndex] = tileInt;
+			if (!mTiles[tileInt]->isWalkable)
+			{
+				auto& world = *MyAIWorld::GetInstance();
+				float xMin = x * mTileWidth;
+				float xMax = (x + 1) * mTileWidth;
+				float yMin = y * mTileWidth;
+				float yMax = (y + 1) * mTileHeight;
+				world.AddWall(X::Math::LineSegment(xMin, yMin, xMax, yMin));
+				world.AddWall(X::Math::LineSegment(xMin, yMin, xMin, yMax));
+				world.AddWall(X::Math::LineSegment(xMax, yMin, xMax, yMax));
+				world.AddWall(X::Math::LineSegment(xMin, yMax, xMax, yMax));
+			}
+			if (tileType == '7')
+			{
+				auto& mineral = mMinerals.emplace_back(std::make_unique<Mineral>(world));
+				mineral->Initialize(GetPixelPosition(x,y));
+				
+			}
 		}
 
 	}
@@ -97,6 +125,10 @@ void MyTileMap::LoadMap(const char* fileName)
 			node->neighbors[South] = GetNeighbor(x, y + 1);
 			node->neighbors[East] = GetNeighbor(x + 1, y);
 			node->neighbors[West] = GetNeighbor(x - 1, y);
+			node->neighbors[NorthEast] = GetNeighbor(x + 1, y - 1);
+			node->neighbors[NorthWest] = GetNeighbor(x - 1, y - 1);
+			node->neighbors[SouthEast] = GetNeighbor(x + 1, y + 1);
+			node->neighbors[SouthWest] = GetNeighbor(x - 1, y + 1);
 		}
 
 	}
@@ -122,6 +154,10 @@ void MyTileMap::Render() const
 		}
 		position.x = 0.0f;
 		position.y += mTileHeight;
+	}
+	for(int i =0; i<mMinerals.size(); ++i)
+	{
+		mMinerals[i]->Render();
 	}
 }
 void MyTileMap::DebugUI() const
@@ -170,10 +206,14 @@ X::Math::Vector2 MyTileMap::GetPixelPosition(int x, int y) const
 		(y + 0.5f) * mTileHeight
 	};
 }
-Path MyTileMap::FindPathDijkstra(int startX, int startY, int endX, int endY)
+Path MyTileMap::FindPathDijkstra(int startX, int startY, int endX, int endY) const
 {
 	auto getCost = [](const Node* node, const Node* neighbor)->float
 		{
+			if (node->column != neighbor->column && node->row != neighbor->row)
+			{
+				return 1.41f;
+			}
 			return 1.0f;
 		};
 	Path path;
@@ -191,10 +231,14 @@ Path MyTileMap::FindPathDijkstra(int startX, int startY, int endX, int endY)
 	}
 	return path;
 }
-Path MyTileMap::FindPathAStar(int startX, int startY, int endX, int endY, AI::GetHeuristic heuristic)
+Path MyTileMap::FindPathAStar(int startX, int startY, int endX, int endY, AI::GetHeuristic heuristic) const
 {
 	auto getCost = [](const Node* node, const Node* neighbor)->float
 		{
+			if (node->column != neighbor->column && node->row != neighbor->row)
+			{
+				return 1.41f;
+			}
 			return 1.0f;
 		};
 	Path path;
@@ -208,7 +252,7 @@ Path MyTileMap::FindPathAStar(int startX, int startY, int endX, int endY, AI::Ge
 			path.push_back(GetPixelPosition(node->column, node->row));
 			node = node->parent;
 		}
-		std::reverse(path.begin(), path.end());
+		//std::reverse(path.begin(), path.end());
 	}
 	return path;
 }

@@ -1,12 +1,13 @@
 #pragma once
 #include "AI.h"
+#include "HumanWorker.h"
 
 using namespace AI;
 
-class HumanBase
+class HumanBase : Entity
 {
 public:
-	HumanBase();
+	HumanBase(AI::AIWorld& world);
 	~HumanBase() = default;
 	void Initialize();
 	void Terminate();
@@ -15,10 +16,11 @@ public:
 	void DebugUI();
 	void Despawn(Agent* agent);
 private:
-	void Spawn();
+	void SpawnWorker();
 	int mLife = 100;
 	int mResources = 20;
-	std::vector<Agent*> deadWorkers = std::vector<Agent*>();
-	std::vector<Agent*> deadFighters = std::vector<Agent*>();
-	std::vector<Agent*> liveAgents = std::vector<Agent*>();
+	std::vector<std::unique_ptr<HumanWorker>> mWorkers = std::vector<std::unique_ptr<HumanWorker>>();
+	std::vector<Agent*> mFighters = std::vector<Agent*>();
+	X::TextureId mTextureId;
+	X::Math::Vector2 mPosition;
 };

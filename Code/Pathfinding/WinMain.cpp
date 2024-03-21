@@ -91,7 +91,6 @@ bool GameLoop(float deltaTime)
 	{
 		X::DrawScreenCircle(pos, 10.0f, X::Colors::Pink);
 	}
-
 	const bool quit = X::IsKeyPressed(X::Keys::ESCAPE);
 	return quit;
 }

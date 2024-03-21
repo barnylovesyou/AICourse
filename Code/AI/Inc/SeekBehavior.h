@@ -27,5 +27,6 @@ namespace AI
 		X::Math::Vector2 Calculate(Agent& agent) override;
 
 		Deceleration deceleration = Deceleration::Normal;
+		float decelTweak = 1.5f;
 	};
 }
