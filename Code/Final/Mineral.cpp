@@ -7,13 +7,13 @@ Mineral::Mineral(AI::AIWorld& world)
 {
 }
 
-void Mineral::Initialize(X::Math::Vector2 position)
+void Mineral::Initialize(X::Math::Vector2 pos)
 {
-	mPosition = position;
+	position = pos;
 	mTextureId = X::LoadTexture("mineralsfinal.png");
 }
 
 void Mineral::Render()
 {
-	X::DrawSprite(mTextureId, mPosition);
+	X::DrawSprite(mTextureId, position);
 }

@@ -18,9 +18,8 @@ public:
 	void SetDebug(bool debug) {mDebug=debug ; }
 	bool GetDebug() {return mDebug;}
 
-	const MyTileMap* GetMap() {return mTileMap.get();}
-
-	AI::EntityPtrs GetEntitiesInRange(const int distance, uint32_t typeId);
+	MyTileMap* GetMap() {return mTileMap.get();}
+	HumanBase* GetHumanBase() { return mHumanBase.get();}
 private:
 	void Initialize();
 	void Terminate();

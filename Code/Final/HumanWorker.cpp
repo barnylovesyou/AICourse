@@ -8,7 +8,10 @@
 #include "MovementSensor.h"
 #include "MyAIWorld.h"
 #include "HumanWorkerStates.h"
+#include "HWStratGoHome.h"
 #include "HWStratScout.h"
+#include "HWStratMine.h"
+#include "HumanBase.h"
 
 
 namespace
@@ -53,6 +56,8 @@ HumanWorker::HumanWorker(AI::AIWorld& world)
 
 void HumanWorker::Load(X::Math::Vector2 spawn)
 {
+	auto world = MyAIWorld::GetInstance();
+	auto map = world->GetMap();
 	position = spawn;
 	maxSpeed = 40.0f;
 
@@ -82,9 +87,26 @@ void HumanWorker::Load(X::Math::Vector2 spawn)
 	mMovementSensor->targetType = AgentType::HumanWorker;
 
 	mDecisionModule = std::make_unique<AI::DecisionModule<HumanWorker>>(*this);
+	//auto mine = mDecisionModule->AddStrategy<HWStratMine>();
+	//auto entities = world->GetEntitiesInRange(X::Math::Circle(position, 9000.0f), static_cast<uint32_t>(AgentType::Mineral));
+	//float distance = 3000000.0f;
+	//float newDist;
+	//X::Math::Vector2 goal;
+	//for (auto& mineral : entities)
+	//{
+	//	newDist = X::Math::DistanceSqr(position, mineral->position);
+	//	if (newDist < distance)
+	//	{
+	//		distance = newDist;
+	//		goal = mineral->position;
+	//		mineralP = mineral->position;
+	//	}
+	//}
+	//mine->SetTargetDestination(goal);
 	auto scout = mDecisionModule->AddStrategy<HWStratScout>();
-	scout->SetTargetDestination(X::Math::Vector2(180.0f,100.0f));
-	
+	X::Math::Vector2 max = map->GetMax();
+	scout->SetTargetDestination(X::Math::Vector2(600, 600));
+	mDecisionModule->AddStrategy<HWStratGoHome>();
 
 	for (int i = 0; i < mTextureIds.size(); ++i)
 	{
@@ -153,6 +175,9 @@ void HumanWorker::Update(float deltaTime)
 	ImGui::Text("Arrive: %s", mArriveBehavior->IsActive() ? "true" : "false");
 	ImGui::SameLine();
 	ImGui::Text("  Seek: %s", mSeekBehavior->IsActive()? "true" :  "false");
+	ImGui::Text("HoldingMinerals: %i", mValue);
+	ImGui::Text("BaseMinerals: %i", MyAIWorld::GetInstance()->GetHumanBase()->GetMinerals());
+	X::DrawScreenCircle(mineralP, 15.0f, X::Colors::Red);
 	ImGui::End();
 }
 
@@ -173,4 +198,10 @@ void HumanWorker::ShowDebug(bool debug)
 void HumanWorker::ChangeState(HumanWorkerState state)
 {
 	mStateMachine->ChangeState(static_cast<int>(state));
+}
+
+void HumanWorker::Dump()
+{
+	MyAIWorld::GetInstance()->GetHumanBase()->Dump(mValue);
+	mValue = 0;
 }

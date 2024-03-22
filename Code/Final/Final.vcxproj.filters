@@ -89,6 +89,18 @@
     <ClCompile Include="HWGoToPos.cpp">
       <Filter>Goals\HumanWorker</Filter>
     </ClCompile>
+    <ClCompile Include="HWStratGoHome.cpp">
+      <Filter>Strategies\HumanWorker</Filter>
+    </ClCompile>
+    <ClCompile Include="HWMining.cpp">
+      <Filter>Goals\HumanWorker</Filter>
+    </ClCompile>
+    <ClCompile Include="HWCompGoMine.cpp">
+      <Filter>Goals\HumanWorker</Filter>
+    </ClCompile>
+    <ClCompile Include="HWDeposit.cpp">
+      <Filter>Goals\HumanWorker</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyAIWorld.h">
@@ -140,6 +152,21 @@
       <Filter>Goals\HumanWorker</Filter>
     </ClInclude>
     <ClInclude Include="HWGoToPos.h">
+      <Filter>Goals\HumanWorker</Filter>
+    </ClInclude>
+    <ClInclude Include="HWStratGoHome.h">
+      <Filter>Strategies\HumanWorker</Filter>
+    </ClInclude>
+    <ClInclude Include="StrategyList.h">
+      <Filter>Strategies</Filter>
+    </ClInclude>
+    <ClInclude Include="HWMining.h">
+      <Filter>Goals\HumanWorker</Filter>
+    </ClInclude>
+    <ClInclude Include="HWCompGoMine.h">
+      <Filter>Goals\HumanWorker</Filter>
+    </ClInclude>
+    <ClInclude Include="HWDeposit.h">
       <Filter>Goals\HumanWorker</Filter>
     </ClInclude>
   </ItemGroup>

@@ -52,5 +52,14 @@ X::Math::Vector2 HWWander::GetRandomDestination(HumanWorker& agent)
 	X::Math::Vector2 max = MyAIWorld::GetInstance()->GetMap()->GetMax();
 	destination.x = X::Math::Clamp(destination.x, min.x, max.x);
 	destination.y = X::Math::Clamp(destination.y, min.y, max.y);
-	return  map->GetPixelPosition(map->GetRow(destination.x), map->GetColumn(destination.y));
+	int ix = map->GetRow(destination.x);
+	int iy = map->GetColumn(destination.y);
+	if (map->IsBlocked(ix,iy))
+	{
+		return map->GetApplicableNeighborPosition(ix,iy);
+	}
+	else
+	{
+		return map->GetPixelPosition(ix, iy);
+	}
 }

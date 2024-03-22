@@ -1,4 +1,14 @@
-﻿  HumanWorker.cpp
-D:\La Salle\AI Programming\AICourse\Code\Final\MyTileMap.h(32,87): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\La Salle\AI Programming\AICourse\Code\Final\MyTileMap.h(32,65): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Final.vcxproj -> D:\La Salle\AI Programming\AICourse\Code\x64\Debug\Final.exe
+﻿  MyTileMap.cpp
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\MyTileMap.h(33,87): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'MyTileMap.cpp')
+  
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\MyTileMap.h(33,65): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'MyTileMap.cpp')
+  
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\MyTileMap.cpp(85,16): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\MyTileMap.cpp(86,16): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\MyTileMap.cpp(87,16): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\MyTileMap.cpp(88,16): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\MyTileMap.cpp(227,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\MyTileMap.cpp(227,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Final.vcxproj -> C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\x64\Debug\Final.exe

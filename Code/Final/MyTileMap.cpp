@@ -181,6 +181,13 @@ void MyTileMap::DebugUI() const
 				X::DrawScreenCircle(GetPixelPosition(node->parent->column, node->parent->row), 10.0f, X::Colors::Black);
 				X::DrawScreenLine(GetPixelPosition(node->parent->column, node->parent->row), GetPixelPosition(node->column, node->row), X::Colors::Red);
 			}
+
+			if (x == 12 && y == 12)
+			{
+				X::DrawScreenCircle(GetPixelPosition(x, y), 15.0f, X::Colors::Yellow);
+				X::DrawScreenCircle(GetPixelPosition(x, y), 17.0f, X::Colors::Yellow);
+
+			}
 		}
 	}
 }
@@ -206,6 +213,24 @@ X::Math::Vector2 MyTileMap::GetPixelPosition(int x, int y) const
 		(y + 0.5f) * mTileHeight
 	};
 }
+
+X::Math::Vector2 MyTileMap::GetApplicableNeighborPosition(int x, int y)
+{
+	auto nieghbors = mGraph->GetNode(x, y)->neighbors;
+	for (auto n : nieghbors)
+	{
+		if (n != nullptr)
+		{
+			int index = ToIndex(n->row, n->column, mColumns);
+			if (mTiles[index]->isWalkable)
+			{
+				return X::Math::Vector2(n->row, n->column);
+			}
+		}
+	}
+	return X::Math::Vector2::Zero();
+}
+
 Path MyTileMap::FindPathDijkstra(int startX, int startY, int endX, int endY) const
 {
 	auto getCost = [](const Node* node, const Node* neighbor)->float

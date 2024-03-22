@@ -10,6 +10,7 @@ HWCompScout::HWCompScout()
 
 void HWCompScout::Activate(HumanWorker& agent)
 {
+	agent.scouting = true;
 	mStatus = HWCompScout::Status::Active;
 	RemoveAllSubGoals(agent);
 	AddSubGoal<HWWander>();
@@ -22,6 +23,10 @@ HWCompScout::Status HWCompScout::Process(HumanWorker& agent)
 	ActivateIfInactive(agent);
 	mStatus = ProcessSubGoals(agent);
 	ReactiveIfFailed(agent);
+	if (mStatus == HWCompScout::Status::Completed)
+	{
+		agent.scouting = false;
+	}
 	return mStatus;
 }
 

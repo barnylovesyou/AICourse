@@ -1,17 +1,21 @@
-D:\La Salle\AI Programming\AICourse\Code\Final\HumanBase.cpp;D:\La Salle\AI Programming\AICourse\Code\Final\x64\Debug\HumanBase.obj
-D:\La Salle\AI Programming\AICourse\Code\Final\HumanWorkerStates.cpp;D:\La Salle\AI Programming\AICourse\Code\Final\x64\Debug\HumanWorkerStates.obj
-D:\La Salle\AI Programming\AICourse\Code\Final\HWArriveAtPos.cpp;D:\La Salle\AI Programming\AICourse\Code\Final\x64\Debug\HWArriveAtPos.obj
-D:\La Salle\AI Programming\AICourse\Code\Final\HWCompScout.cpp;D:\La Salle\AI Programming\AICourse\Code\Final\x64\Debug\HWCompScout.obj
-D:\La Salle\AI Programming\AICourse\Code\Final\HWCompTravelTo.cpp;D:\La Salle\AI Programming\AICourse\Code\Final\x64\Debug\HWCompTravelTo.obj
-D:\La Salle\AI Programming\AICourse\Code\Final\HWGoToPos.cpp;D:\La Salle\AI Programming\AICourse\Code\Final\x64\Debug\HWGoToPos.obj
-D:\La Salle\AI Programming\AICourse\Code\Final\HWStratMine.cpp;D:\La Salle\AI Programming\AICourse\Code\Final\x64\Debug\HWStratMine.obj
-D:\La Salle\AI Programming\AICourse\Code\Final\HWStratRun.cpp;D:\La Salle\AI Programming\AICourse\Code\Final\x64\Debug\HWStratRun.obj
-D:\La Salle\AI Programming\AICourse\Code\Final\HWStratScout.cpp;D:\La Salle\AI Programming\AICourse\Code\Final\x64\Debug\HWStratScout.obj
-D:\La Salle\AI Programming\AICourse\Code\Final\HWWander.cpp;D:\La Salle\AI Programming\AICourse\Code\Final\x64\Debug\HWWander.obj
-D:\La Salle\AI Programming\AICourse\Code\Final\Mineral.cpp;D:\La Salle\AI Programming\AICourse\Code\Final\x64\Debug\Mineral.obj
-D:\La Salle\AI Programming\AICourse\Code\Final\MovementSensor.cpp;D:\La Salle\AI Programming\AICourse\Code\Final\x64\Debug\MovementSensor.obj
-D:\La Salle\AI Programming\AICourse\Code\Final\MyAIWorld.cpp;D:\La Salle\AI Programming\AICourse\Code\Final\x64\Debug\MyAIWorld.obj
-D:\La Salle\AI Programming\AICourse\Code\Final\MyTileMap.cpp;D:\La Salle\AI Programming\AICourse\Code\Final\x64\Debug\MyTileMap.obj
-D:\La Salle\AI Programming\AICourse\Code\Final\HumanWorker.cpp;D:\La Salle\AI Programming\AICourse\Code\Final\x64\Debug\HumanWorker.obj
-D:\La Salle\AI Programming\AICourse\Code\Final\VisualSensor.cpp;D:\La Salle\AI Programming\AICourse\Code\Final\x64\Debug\VisualSensor.obj
-D:\La Salle\AI Programming\AICourse\Code\Final\WinMain.cpp;D:\La Salle\AI Programming\AICourse\Code\Final\x64\Debug\WinMain.obj
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\HumanBase.cpp;C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\x64\Debug\HumanBase.obj
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\HumanWorkerStates.cpp;C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\x64\Debug\HumanWorkerStates.obj
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\HWArriveAtPos.cpp;C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\x64\Debug\HWArriveAtPos.obj
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\HWCompGoMine.cpp;C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\x64\Debug\HWCompGoMine.obj
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\HWCompScout.cpp;C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\x64\Debug\HWCompScout.obj
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\HWCompTravelTo.cpp;C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\x64\Debug\HWCompTravelTo.obj
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\HWDeposit.cpp;C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\x64\Debug\HWDeposit.obj
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\HWMining.cpp;C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\x64\Debug\HWMining.obj
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\HWStratGoHome.cpp;C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\x64\Debug\HWStratGoHome.obj
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\HWGoToPos.cpp;C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\x64\Debug\HWGoToPos.obj
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\HWStratMine.cpp;C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\x64\Debug\HWStratMine.obj
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\HWStratRun.cpp;C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\x64\Debug\HWStratRun.obj
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\HWStratScout.cpp;C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\x64\Debug\HWStratScout.obj
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\HWWander.cpp;C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\x64\Debug\HWWander.obj
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\Mineral.cpp;C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\x64\Debug\Mineral.obj
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\MovementSensor.cpp;C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\x64\Debug\MovementSensor.obj
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\MyAIWorld.cpp;C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\x64\Debug\MyAIWorld.obj
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\MyTileMap.cpp;C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\x64\Debug\MyTileMap.obj
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\HumanWorker.cpp;C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\x64\Debug\HumanWorker.obj
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\VisualSensor.cpp;C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\x64\Debug\VisualSensor.obj
+C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\WinMain.cpp;C:\Users\lcv2142944\Documents\GitHub\AICourse\Code\Final\x64\Debug\WinMain.obj

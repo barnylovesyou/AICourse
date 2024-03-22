@@ -1,6 +1,8 @@
 #include "HWStratScout.h"
 
 #include "HWCompScout.h"
+#include "MyAIWorld.h"
+#include "HumanBase.h"
 
 void HWStratScout::SetTargetDestination(const X::Math::Vector2& destination)
 {
@@ -9,7 +11,7 @@ void HWStratScout::SetTargetDestination(const X::Math::Vector2& destination)
 
 float HWStratScout::CalculateDesirability(HumanWorker& agent) const
 {
-	return 100.0f;
+	return MyAIWorld::GetInstance()->GetHumanBase()->GetWDesirability(agent, WStrats::Scout);
 }
 
 std::unique_ptr<AI::Goal<HumanWorker>> HWStratScout::CreateGoal() const

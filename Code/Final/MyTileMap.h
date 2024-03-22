@@ -5,6 +5,7 @@
 
 #include "Mineral.h"
 
+
 using Path = std::vector<X::Math::Vector2>;
 
 struct Tile
@@ -32,6 +33,7 @@ public:
 	X::Math::Vector2 GetMax() const { return X::Math::Vector2(mRows*mTileWidth, mColumns * mTileHeight);}
 
 	X::Math::Vector2 GetPixelPosition(int x, int y) const;
+	X::Math::Vector2 GetApplicableNeighborPosition(int x, int y);
 
 	Path FindPathDijkstra(int startX, int startY, int endX, int endY) const;
 	Path FindPathAStar(int startX, int startY, int endX, int endY, AI::GetHeuristic heuristic) const;

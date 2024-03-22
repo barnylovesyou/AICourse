@@ -11,8 +11,9 @@ public:
 
 	void Initialize(X::Math::Vector2 position);
 	void Render();
+	int GetValue() { return mValue; }
 
 private:
 	X::TextureId mTextureId;
-	X::Math::Vector2 mPosition;
+	int mValue = 5;
 };

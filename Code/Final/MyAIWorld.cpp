@@ -55,11 +55,6 @@ void MyAIWorld::DebugUI()
 	}
 }
 
-AI::EntityPtrs MyAIWorld::GetEntitiesInRange(const int distance, uint32_t typeId)
-{
-	return AI::EntityPtrs();
-}
-
 void MyAIWorld::Initialize()
 {
 	auto& world = *MyAIWorld::GetInstance();
