@@ -1,8 +1,6 @@
 #include "MyTileMap.h"
-#include "XColors.h"
 #include "ImGui/inc/imgui.h"
 #include "MyAIWorld.h"
-#include "AIWorld.h"
 #include <iostream>
 
 using namespace AI;
@@ -175,19 +173,19 @@ void MyTileMap::DebugUI() const
 			const X::Math::Vector2 c = GetPixelPosition(node->column, node->row + 1);
 			X::DrawScreenLine(a - offset, b - offset, X::Colors::Blue);
 			X::DrawScreenLine(a - offset, c - offset, X::Colors::Blue);
-			//Last search visited nodes display
-			if (node->parent != nullptr)
-			{
-				X::DrawScreenCircle(GetPixelPosition(node->parent->column, node->parent->row), 10.0f, X::Colors::Black);
-				X::DrawScreenLine(GetPixelPosition(node->parent->column, node->parent->row), GetPixelPosition(node->column, node->row), X::Colors::Red);
-			}
-
-			if (x == 12 && y == 12)
-			{
-				X::DrawScreenCircle(GetPixelPosition(x, y), 15.0f, X::Colors::Yellow);
-				X::DrawScreenCircle(GetPixelPosition(x, y), 17.0f, X::Colors::Yellow);
-
-			}
+			////Last search visited nodes display
+			//if (node->parent != nullptr)
+			//{
+			//	X::DrawScreenCircle(GetPixelPosition(node->parent->column, node->parent->row), 10.0f, X::Colors::Black);
+			//	X::DrawScreenLine(GetPixelPosition(node->parent->column, node->parent->row), GetPixelPosition(node->column, node->row), X::Colors::Red);
+			//}
+			//
+			//if (x == 12 && y == 12)
+			//{
+			//	X::DrawScreenCircle(GetPixelPosition(x, y), 15.0f, X::Colors::Yellow);
+			//	X::DrawScreenCircle(GetPixelPosition(x, y), 17.0f, X::Colors::Yellow);
+			//
+			//}
 		}
 	}
 }
@@ -211,6 +209,21 @@ X::Math::Vector2 MyTileMap::GetPixelPosition(int x, int y) const
 	return {
 		(x + 0.5f) * mTileWidth,
 		(y + 0.5f) * mTileHeight
+	};
+}
+
+X::Math::Vector2 MyTileMap::GetPixelPositionFromLocation(float x, float y) const
+{
+	return {
+		(GetColumn(x) + 0.5f)* mTileWidth,
+		(GetRow(y) + 0.5f) * mTileHeight
+	};
+}
+X::Math::Vector2 MyTileMap::GetPixelPositionFromLocation(X::Math::Vector2 loc) const
+{
+	return {
+		(GetColumn(loc.x) + 0.5f) * mTileWidth,
+		(GetRow(loc.y) + 0.5f) * mTileHeight
 	};
 }
 
@@ -281,15 +294,82 @@ Path MyTileMap::FindPathAStar(int startX, int startY, int endX, int endY, AI::Ge
 	}
 	return path;
 }
-// 2D map - 5 columns x 4 rows
-// [0][0][0][0][0]
-// [0][0][0][0][0]
-// [0][0][0][X][0]   X is at (3, 2)
-// [0][0][0][0][0]
 
-// Stored as 1D - 5x4 = 20 slots
-// [0][0][0][0][0] [0][0][0][0][0] [0][0][0][X][0] [0][0][0][0][0]
-//
-// index = column + (row * columnCount)
-//       = 3 + (2 * 5)
-//       = 13
+Path MyTileMap::FindPathAStarToOpen(int startX, int startY, int endX, int endY, AI::GetHeuristic heuristic, int max) const
+{
+	auto getCost = [](const Node* node, const Node* neighbor)->float
+	{
+		if (node->column != neighbor->column && node->row != neighbor->row)
+		{
+			return 1.41f;
+		}
+		return 1.0f;
+	};
+	Path curPath;
+	std::vector<Path> possiblePaths;
+	AStar aStar;
+	std::vector<Node*> neighbors;
+	if(!IsBlocked(endX, endY))
+	{
+		return FindPathAStar(startX, startY, endX, endY, heuristic);
+	}
+	else
+	{
+		auto GetNeighbor = [&](int x, int y) -> Node*
+		{
+			if (IsBlocked(x, y))
+			{
+				return nullptr;
+			}
+			return mGraph->GetNode(x, y);
+		};
+		neighbors.push_back(GetNeighbor(endX, endY - 1));
+		neighbors.push_back(GetNeighbor(endX, endY + 1));
+		neighbors.push_back(GetNeighbor(endX - 1, endY));
+		neighbors.push_back(GetNeighbor(endX + 1, endY));
+		neighbors.push_back(GetNeighbor(endX - 1, endY - 1));
+		neighbors.push_back(GetNeighbor(endX + 1, endY - 1));
+		neighbors.push_back(GetNeighbor(endX - 1, endY + 1));
+		neighbors.push_back(GetNeighbor(endX + 1, endY + 1));
+		for (Node* n : neighbors)
+		{
+			if (n != nullptr)
+			{
+				if (aStar.Run(*mGraph, startX, startY, n->column, n->row, getCost, heuristic))
+				{
+
+					const NodeList& closedList = aStar.GetClosedList();
+					Node* node = closedList.back();
+					while (node != nullptr)
+					{
+						curPath.push_back(GetPixelPosition(node->column, node->row));
+						node = node->parent;
+					}
+					if (curPath.size() < max)
+					{
+						return curPath;
+					}
+					else
+					{
+						possiblePaths.push_back(curPath);
+					}
+				}
+			}
+		}
+		XASSERT(!possiblePaths.empty(), "No possible paths to node or the surrounding nodes X:%i, Y:%i", endX, endY);
+		if (possiblePaths.size() > 1)
+		{
+			int size;
+			for (int i = 0; i<possiblePaths.size()-1; ++i)
+			{
+				curPath = (possiblePaths[i].size()< possiblePaths[i+1].size())? possiblePaths[0] : possiblePaths[i + 1];
+				int size = curPath.size();
+			}
+			return curPath;
+		}
+		else
+		{
+			return possiblePaths[0];
+		}
+	}
+}

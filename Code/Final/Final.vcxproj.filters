@@ -50,10 +50,7 @@
     <ClCompile Include="Mineral.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="VisualSensor.cpp">
-      <Filter>Sensors</Filter>
-    </ClCompile>
-    <ClCompile Include="MovementSensor.cpp">
+    <ClCompile Include="HWVisualSensor.cpp">
       <Filter>Sensors</Filter>
     </ClCompile>
     <ClCompile Include="HWStratRun.cpp">
@@ -80,7 +77,7 @@
     <ClCompile Include="HWCompTravelTo.cpp">
       <Filter>Goals\HumanWorker</Filter>
     </ClCompile>
-    <ClCompile Include="HWWander.cpp">
+    <ClCompile Include="HWCompWander.cpp">
       <Filter>Goals\HumanWorker</Filter>
     </ClCompile>
     <ClCompile Include="HWCompScout.cpp">
@@ -101,6 +98,9 @@
     <ClCompile Include="HWDeposit.cpp">
       <Filter>Goals\HumanWorker</Filter>
     </ClCompile>
+    <ClCompile Include="ScoutMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyAIWorld.h">
@@ -112,10 +112,7 @@
     <ClInclude Include="Mineral.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="VisualSensor.h">
-      <Filter>Sensors</Filter>
-    </ClInclude>
-    <ClInclude Include="MovementSensor.h">
+    <ClInclude Include="HWVisualSensor.h">
       <Filter>Sensors</Filter>
     </ClInclude>
     <ClInclude Include="MyTileMap.h">
@@ -145,7 +142,7 @@
     <ClInclude Include="HWCompTravelTo.h">
       <Filter>Goals\HumanWorker</Filter>
     </ClInclude>
-    <ClInclude Include="HWWander.h">
+    <ClInclude Include="HWCompWander.h">
       <Filter>Goals\HumanWorker</Filter>
     </ClInclude>
     <ClInclude Include="HWCompScout.h">
@@ -168,6 +165,9 @@
     </ClInclude>
     <ClInclude Include="HWDeposit.h">
       <Filter>Goals\HumanWorker</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoutMap.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

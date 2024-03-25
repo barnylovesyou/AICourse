@@ -1,4 +1,5 @@
 #include "HWArriveAtPos.h"
+#include "ImGui/Inc/imgui.h"
 
 HWArriveAtPos::HWArriveAtPos()
 {
@@ -26,6 +27,12 @@ void HWArriveAtPos::Terminate(HumanWorker& agent)
 {
 	agent.SetArrive(false);
 	agent.SetSeek(true);
+}
+
+void HWArriveAtPos::Debug(HumanWorker& agent)
+{
+	ImGui::Text("Goal: Arrive At: X:%f  Y:%f" , mDestination.x, mDestination.y);
+	X::DrawScreenLine(agent.position, mDestination, X::Colors::Red);
 }
 
 void HWArriveAtPos::SetDestination(const X::Math::Vector2& destination)

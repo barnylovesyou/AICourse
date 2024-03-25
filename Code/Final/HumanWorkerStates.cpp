@@ -1,45 +1,52 @@
 #include "HumanWorkerStates.h"
 #include "HumanWorker.h"
+#include "MyAIWorld.h"
+#include "HumanBase.h"
 
-void Mine::Enter(HumanWorker& agent)
+void HWMine::Enter(HumanWorker& agent)
 {
 }
 
-void Mine::Update(HumanWorker& agent, float deltaTime)
-{
-	mineTimer += deltaTime;
-	if (mineTimer > 5.0f)
-	{
-		agent.ChangeState(HumanWorkerState::Move);
-	}
-}
-
-void Mine::Exit(HumanWorker& agent)
+void HWMine::Update(HumanWorker& agent, float deltaTime)
 {
 }
 
-void Mine::DebugUI(HumanWorker& agent)
+void HWMine::Exit(HumanWorker& agent)
 {
 }
 
-void Move::Enter(HumanWorker& agent)
+void HWMine::DebugUI(HumanWorker& agent)
 {
 }
 
-void Move::Update(HumanWorker& agent, float deltaTime)
-{
-	agent.GetPerceptionModule()->Update(deltaTime);
-	agent.GetDecisionModule()->Update();
-	const X::Math::Vector2 force = agent.GetSteeringModule()->Calculate();
-	const X::Math::Vector2 acceleration = force / agent.mass;
-	agent.velocity += acceleration * deltaTime;
-	agent.position += agent.velocity * deltaTime;
-}
-
-void Move::Exit(HumanWorker& agent)
+void HWGoHome::Enter(HumanWorker& agent)
 {
 }
 
-void Move::DebugUI(HumanWorker& agent)
+void HWGoHome::Update(HumanWorker& agent, float deltaTime)
+{
+}
+
+void HWGoHome::Exit(HumanWorker& agent)
+{
+}
+
+void HWGoHome::DebugUI(HumanWorker& agent)
+{
+}
+
+void HWScout::Enter(HumanWorker& agent)
+{
+}
+
+void HWScout::Update(HumanWorker& agent, float deltaTime)
+{
+}
+
+void HWScout::Exit(HumanWorker& agent)
+{
+}
+
+void HWScout::DebugUI(HumanWorker& agent)
 {
 }

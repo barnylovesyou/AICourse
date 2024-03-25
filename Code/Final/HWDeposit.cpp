@@ -1,6 +1,7 @@
 #include "HWDeposit.h"
 #include "TypeIds.h"
 #include "MyAIWorld.h"
+#include "ImGui/Inc/imgui.h"
 
 HWDeposit::HWDeposit()
 {
@@ -21,6 +22,11 @@ HWDeposit::Status HWDeposit::Process(HumanWorker& agent)
 
 void HWDeposit::Terminate(HumanWorker& agent)
 {
+}
+
+void HWDeposit::Debug(HumanWorker& agent)
+{
+	ImGui::Text("Goal: Deposit");
 }
 
 void HWDeposit::SetDestination(const X::Math::Vector2& destination)

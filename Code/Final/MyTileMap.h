@@ -28,15 +28,18 @@ public:
 	int GetRows() const { return mRows; }
 	int GetTileHeight()const { return mTileHeight; }
 	int GetTileWidth() const { return mTileWidth; }
-	int GetColumn(float y) const{ return int(y/mTileHeight);}
-	int GetRow(float x) const{ return int(x / mTileWidth); }
+	int GetRow(float y) const{ return int(y/mTileHeight);}
+	int GetColumn(float x) const{ return int(x / mTileWidth); }
 	X::Math::Vector2 GetMax() const { return X::Math::Vector2(mRows*mTileWidth, mColumns * mTileHeight);}
 
 	X::Math::Vector2 GetPixelPosition(int x, int y) const;
+	X::Math::Vector2 GetPixelPositionFromLocation(float x, float y) const;
+	X::Math::Vector2 GetPixelPositionFromLocation(X::Math::Vector2 loc) const;
 	X::Math::Vector2 GetApplicableNeighborPosition(int x, int y);
 
 	Path FindPathDijkstra(int startX, int startY, int endX, int endY) const;
 	Path FindPathAStar(int startX, int startY, int endX, int endY, AI::GetHeuristic heuristic) const;
+	Path FindPathAStarToOpen(int startX, int startY, int endX, int endY, AI::GetHeuristic heuristic, int max) const;
 private:
 	std::unique_ptr<AI::GridBasedGraph> mGraph;
 	std::vector<int> mMap;

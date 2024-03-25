@@ -11,6 +11,7 @@ namespace AI
 		virtual~Strategy() = default;
 
 		virtual float CalculateDesirability(AgentType& agent) const = 0;
-		virtual std::unique_ptr<Goal<AgentType>> CreateGoal() const = 0;
+		virtual std::unique_ptr<Goal<AgentType>> CreateGoal(AgentType& agent) const = 0;
+		virtual void Debug(AgentType& agent) const = 0;
 	};
 }

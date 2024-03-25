@@ -3,6 +3,7 @@
 #include "MyTileMap.h"
 #include "HWArriveAtPos.h"
 #include "HWGoToPos.h"
+#include "ImGui/Inc/imgui.h"
 
 auto Diagonals = [](const AI::Node* neighbor, const AI::Node* endNode)->float
 	{
@@ -19,15 +20,15 @@ HWCompTravelTo::HWCompTravelTo()
 void HWCompTravelTo::Activate(HumanWorker& agent)
 {
 	mStatus = HWCompTravelTo::Status::Active;
-	auto* world = MyAIWorld::GetInstance();
-	auto& map = *(world->GetMap());
+	auto world = MyAIWorld::GetInstance();
+	auto map = world->GetMap();
 	RemoveAllSubGoals(agent);
 	float distanceSqr = X::Math::DistanceSqr(agent.position, mDestination);
 	X::Math::Vector2 start = agent.position;
 	X::Math::Vector2 end = mDestination;
-	if (distanceSqr > map.GetTileHeight()*map.GetTileWidth())
+	if (distanceSqr > map->GetTileHeight()*map->GetTileWidth()/4)
 	{
-		Path path = map.FindPathAStar(map.GetRow(start.x), map.GetColumn(start.y), map.GetRow(end.x), map.GetColumn(end.y), Diagonals);
+		Path path = map->FindPathAStarToOpen(map->GetRow(start.x), map->GetColumn(start.y), map->GetRow(end.x), map->GetColumn(end.y), Diagonals, 1000);
 		for(int i  = 0; i<path.size(); ++i)
 		{
 			if (i == path.size() - 1)
@@ -54,6 +55,15 @@ HWCompTravelTo::Status HWCompTravelTo::Process(HumanWorker& agent)
 
 void HWCompTravelTo::Terminate(HumanWorker& agent)
 {
+}
+
+void HWCompTravelTo::Debug(HumanWorker& agent)
+{
+	auto world = MyAIWorld::GetInstance();
+	auto map = world->GetMap();
+	ImGui::Text("GoalComposite: TravelTo: FinalDestination X:%f  Y:%f", mDestination.x, mDestination.y);
+	X::DrawScreenCircle(map->GetPixelPositionFromLocation(mDestination), 7.5f ,X::Colors::Red);
+	mSubGoals.back()->Debug(agent);
 }
 
 void HWCompTravelTo::SetDestination(const X::Math::Vector2& destination)

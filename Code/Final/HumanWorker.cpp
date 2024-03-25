@@ -4,8 +4,7 @@
 
 #include "TypeIDs.h"
 
-#include "VisualSensor.h"
-#include "MovementSensor.h"
+#include "HWVisualSensor.h"
 #include "MyAIWorld.h"
 #include "HumanWorkerStates.h"
 #include "HWStratGoHome.h"
@@ -59,54 +58,36 @@ void HumanWorker::Load(X::Math::Vector2 spawn)
 	auto world = MyAIWorld::GetInstance();
 	auto map = world->GetMap();
 	position = spawn;
-	maxSpeed = 40.0f;
+	maxSpeed = 20.0f;
 
 	mStateMachine = std::make_unique<AI::StateMachine<HumanWorker>>();
 	mStateMachine->Initialize(this);
-	mStateMachine->AddState<Mine>();
-	mStateMachine->AddState<Move>();
-	mStateMachine->ChangeState(static_cast<int>(HumanWorkerState::Move));
+	mStateMachine->AddState<HWMine>();
+	mStateMachine->AddState<HWGoHome>();
+	mStateMachine->AddState<HWScout>();
+	mStateMachine->ChangeState(static_cast<uint32_t>(HumanWorkerState::GoHome));
 
 	mSteeringModule = std::make_unique<AI::SteeringModule>(*this);
 	mSeekBehavior = mSteeringModule->AddBehavior<AI::SeekBehavior>();
 	mSeekBehavior->SetActive(true);
-	mSeekBehavior->SetWeight(30.0f);
+	mSeekBehavior->SetWeight(300.0f);
 	mArriveBehavior = mSteeringModule->AddBehavior<AI::ArriveBehavior>();
 	mArriveBehavior->SetActive(false);
-	mArriveBehavior->SetWeight(30.0f);
+	mArriveBehavior->SetWeight(300.0f);
 
 	mPerceptionModule = std::make_unique<AI::PerceptionModule>(*this, ComputeImportance);
 	mPerceptionModule->SetMemorySpan(12.0f);
-	mVisualSensor = mPerceptionModule->AddSensor<VisualSensor>();
+	mVisualSensor = mPerceptionModule->AddSensor<HWVisualSensor>();
 	mVisualSensor->targetTypes.push_back(AgentType::Mineral);
 	mVisualSensor->targetTypes.push_back(AgentType::RobotBase);
 	mVisualSensor->targetTypes.push_back(AgentType::RobotFighter);
 	mVisualSensor->targetTypes.push_back(AgentType::RobotWorker);
-	mVisualSensor->viewRange = 300.0f;
-	mMovementSensor = mPerceptionModule->AddSensor<MovementSensor>();
-	mMovementSensor->targetType = AgentType::HumanWorker;
+	mVisualSensor->viewRange = mVisionRadius;
 
 	mDecisionModule = std::make_unique<AI::DecisionModule<HumanWorker>>(*this);
-	//auto mine = mDecisionModule->AddStrategy<HWStratMine>();
-	//auto entities = world->GetEntitiesInRange(X::Math::Circle(position, 9000.0f), static_cast<uint32_t>(AgentType::Mineral));
-	//float distance = 3000000.0f;
-	//float newDist;
-	//X::Math::Vector2 goal;
-	//for (auto& mineral : entities)
-	//{
-	//	newDist = X::Math::DistanceSqr(position, mineral->position);
-	//	if (newDist < distance)
-	//	{
-	//		distance = newDist;
-	//		goal = mineral->position;
-	//		mineralP = mineral->position;
-	//	}
-	//}
-	//mine->SetTargetDestination(goal);
 	auto scout = mDecisionModule->AddStrategy<HWStratScout>();
-	X::Math::Vector2 max = map->GetMax();
-	scout->SetTargetDestination(X::Math::Vector2(600, 600));
 	mDecisionModule->AddStrategy<HWStratGoHome>();
+	mDecisionModule->AddStrategy<HWStratMine>();
 
 	for (int i = 0; i < mTextureIds.size(); ++i)
 	{
@@ -124,6 +105,12 @@ void HumanWorker::Unload()
 void HumanWorker::Update(float deltaTime)
 {
 	mStateMachine->Update(deltaTime);
+	mPerceptionModule->Update(deltaTime);
+	mDecisionModule->Update();
+	const X::Math::Vector2 force = mSteeringModule->Calculate();
+	const X::Math::Vector2 acceleration = force / mass;
+	velocity += acceleration * deltaTime;
+	position += velocity * deltaTime;
 
 	if (X::Math::MagnitudeSqr(velocity) > 1.0f)
 	{
@@ -164,20 +151,11 @@ void HumanWorker::Update(float deltaTime)
 			velocity.y = 0.0f;
 		}
 	}
+	MyAIWorld::GetInstance()->GetHumanBase()->Scout(position, mVisionRadius);
 	ImGui::Begin("worker");
 	ImGui::Text("X: %f", position.x);
 	ImGui::SameLine();
 	ImGui::Text("  Y: %f", position.y);
-
-	ImGui::Text("X: %f", destination.x);
-	ImGui::SameLine();
-	ImGui::Text("  Y: %f", destination.y);
-	ImGui::Text("Arrive: %s", mArriveBehavior->IsActive() ? "true" : "false");
-	ImGui::SameLine();
-	ImGui::Text("  Seek: %s", mSeekBehavior->IsActive()? "true" :  "false");
-	ImGui::Text("HoldingMinerals: %i", mValue);
-	ImGui::Text("BaseMinerals: %i", MyAIWorld::GetInstance()->GetHumanBase()->GetMinerals());
-	X::DrawScreenCircle(mineralP, 15.0f, X::Colors::Red);
 	ImGui::End();
 }
 
@@ -187,6 +165,11 @@ void HumanWorker::Render()
 	const float percent = angle / X::Math::kTwoPi;
 	const int frame = static_cast<int>(percent * mTextureIds.size()) % mTextureIds.size();
 	X::DrawSprite(mTextureIds[frame], position);
+}
+
+void HumanWorker::Debug()
+{
+	mDecisionModule->Debug();
 }
 
 void HumanWorker::ShowDebug(bool debug)

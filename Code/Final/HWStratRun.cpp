@@ -1,6 +1,7 @@
 #include "HWStratRun.h"
 
 #include "HWCompScout.h"
+#include "ImGui/Inc/imgui.h"
 
 void HWStratRun::SetTargetDestination(const X::Math::Vector2& destination)
 {
@@ -9,12 +10,18 @@ void HWStratRun::SetTargetDestination(const X::Math::Vector2& destination)
 
 float HWStratRun::CalculateDesirability(HumanWorker& agent) const
 {
-	return 100.0f;
+	//if(agent.GetPerceptionModule()->GetMemoryRecords())
+	return 0.0f;
 }
 
-std::unique_ptr<AI::Goal<HumanWorker>> HWStratRun::CreateGoal() const
+std::unique_ptr<AI::Goal<HumanWorker>> HWStratRun::CreateGoal(HumanWorker& agent) const
 {
 	auto newGoal = std::make_unique<HWCompScout>();
 	newGoal->SetDestination(mTargetDestination);
 	return newGoal;
+}
+
+void HWStratRun::Debug(HumanWorker& agent) const
+{
+	ImGui::Text("Current Strategy: Run");
 }

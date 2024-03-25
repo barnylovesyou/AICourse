@@ -42,6 +42,15 @@ namespace AI
 				}
 			}
 		}
+		void Debug()
+		{
+			if (mCurrentStrategy != nullptr)
+			{
+				mCurrentStrategy->Debug(mAgent);
+				mCurrentGoal->Debug(mAgent);
+			}
+		}
+		StrategyType* GetCurrentStrategy() { return mCurrentStrategy;}
 
 	private:
 
@@ -70,7 +79,7 @@ namespace AI
 				}
 				if (mCurrentStrategy!= nullptr)
 				{
-					mCurrentGoal = mCurrentStrategy->CreateGoal();
+					mCurrentGoal = mCurrentStrategy->CreateGoal(mAgent);
 				}
 			}
 		}

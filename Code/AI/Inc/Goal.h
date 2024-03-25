@@ -21,6 +21,7 @@ namespace AI
 		virtual void Activate(AgentType& agent) = 0;
 		virtual Status Process(AgentType& agent) = 0;
 		virtual void Terminate(AgentType& agent) = 0;
+		virtual void Debug(AgentType& agent) = 0;
 
 		Status GetStatus() const { return mStatus; }
 
@@ -40,6 +41,5 @@ namespace AI
 			}
 		}
 		Status mStatus = Status::Inactive;
-
 	};
 }
