@@ -52,6 +52,9 @@ void HWVisualSensor::Update(AI::Agent& agent, AI::MemoryRecords& memory, float d
 		{
 			MyAIWorld::GetInstance()->GetHumanBase()->SpotMineral(dynamic_cast<Mineral*>(const_cast<Entity*>(entity)));
 		}
+
+		//When I add enemies it will become relevant to have local memory records that will also ask for assistance from the base
+
 		//if()
 		//auto iter = std::find_if(memory.begin(), memory.end(), 
 		//	[&](const MemoryRecord& m)
