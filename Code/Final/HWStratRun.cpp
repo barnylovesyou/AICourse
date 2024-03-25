@@ -10,7 +10,7 @@ void HWStratRun::SetTargetDestination(const X::Math::Vector2& destination)
 
 float HWStratRun::CalculateDesirability(HumanWorker& agent) const
 {
-	//if(agent.GetPerceptionModule()->GetMemoryRecords())
+	//Is only desirable if an enemy is in vision
 	return 0.0f;
 }
 
